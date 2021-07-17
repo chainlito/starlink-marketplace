@@ -12,8 +12,7 @@ const Layout = ({children}) => {
     return (
         <Box w="100%" h="100%">
             <Header />
-            <Flex>
-                <NavBar />
+            <Flex h="100%" m="1.5rem 3rem auto 3rem">
                 {children}
             </Flex>
         </Box>
