@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <Flex w="100%" h="80px" bg="#1d253f" textColor="#fff" justifyContent="space-between">
             <Flex w="15%" justifyContent="center" alignSelf="center" >
-                <Image src={"starlink_logo.png"} alignSelf="center" alt="ico" w="28px" h="28px"/>
+                <Image src={"logo.ico"} alignSelf="center" alt="ico" w="28px" h="28px"/>
                 <Text fontWeight="400" fontSize="24px" ml="0.5rem">STARLINK</Text>
             </Flex>
             <Flex alignItems="center" alignSelf="center" bg="transparent" _focusWithin={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} borderRadius="6px" h="2.5rem" w="30%" p="2px">
