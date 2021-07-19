@@ -20,13 +20,13 @@ const BuyItem = () => {
             </Flex>
             <Flex flexDirection="column">
                 <Text lineHeight="0px" fontSize="42px" textColor="#fff" fontWeight="400">ADMIRAL GLOVES</Text>
-                <Flex>
+                <Flex alignItems="center">
                     <Text lineHeight="0px" fontSize="14px" fontWeight="400" textColor="#1365F1">Token ID: 5334...4096</Text>
-                    <Image alt="copy addr" w="20px" h="20px" src="buyitem/ico_addr_copy.png" />
+                    <Image alt="copy addr" w="20px" h="20px" src="buyitem/ico_addr_copy.png" ml="1rem" />
                 </Flex>
-                <Flex mt="1rem">
+                <Flex mt="1rem" mb="1rem" alignItems="center">
                     <Image alt="creator avatar" w="50px" h="50px" src="buyitem/img_profile.png"></Image>
-                    <Flex flexDirection="column">
+                    <Flex flexDirection="column" ml="1rem">
                         <FormLabel fontSize="10px" fontWeight="300" textColor="rgba(255, 255, 255, 0.4)">BY CREATOR</FormLabel>
                         <FormLabel fontSize="14px" fontWeight="300" textColor="#fff">@KamiSawZe</FormLabel>
                     </Flex>
@@ -49,14 +49,14 @@ const BuyItem = () => {
                 <Flex>
                     <Flex flexDirection="column">
                         <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="14px">TYPE</Text>
-                        <Flex>
+                        <Flex fontWeight="300" textColor="#fff" fontSize="16px">
                             <Image alt="ico equip type" w="15px" h="15px" src="buyitem/ico_item_type.png"></Image>
-                            <Text fontWeight="300" textColor="#fff" fontSize="16px">Equipment</Text>
+                            Equipment
                         </Flex>
                     </Flex>
                     <Flex flexDirection="column">
                         <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="14px">BIOME</Text>
-                        <Text fontWeight="300" textColor="#fff" fontSize="16px">None</Text>
+                        <Flex fontWeight="300" textColor="#fff" fontSize="16px">None</Flex>
                     </Flex>
                     <Flex flexDirection="column">
                         <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="14px">TAGS</Text>
@@ -66,29 +66,29 @@ const BuyItem = () => {
                     </Flex>
                 </Flex>
                 {/* ------------------------------------Attributes------------------------------------- */}
-                <Flex>
+                <Flex alignItems="center">
                     <Image alt="attribute overview img" w="40px" h="40px" src="buyitem/img_attr_type1.png"></Image>
-                    <Flex flexDirection="column">
-                        <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="10px">Catalyst</Text>
-                        <Text fontWeight="300" textColor="#fff" fontSize="16px">Legendary</Text>
+                    <Flex flexDirection="column" alignItems="center">
+                        <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="10px">Catalyst</Flex>
+                        <Flex fontWeight="300" textColor="#fff" fontSize="16px">Legendary</Flex>
                     </Flex>
                     <Flex flexDirection="column">
-                        <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="14px">POWER</Text>
-                        <Flex>
+                        <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="14px">POWER</Flex>
+                        <Flex fontWeight="300" textColor="#fff" fontSize="16px">
                             <Image alt="power img" w="20px" h="20px" src="buyitem/img_def.png"></Image>
-                            <Text fontWeight="300" textColor="#fff" fontSize="16px">49</Text>
+                            49
                         </Flex>
                     </Flex>
                     <Flex flexDirection="column">
-                        <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="14px">DEFENSE</Text>
-                        <Flex>
+                        <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="14px">DEFENSE</Flex>
+                        <Flex fontWeight="300" textColor="#fff" fontSize="16px">
                             <Image alt="defense img" w="20px" h="20px" src="buyitem/img_power.png"></Image>
-                            <Text fontWeight="300" textColor="#fff" fontSize="16px">31</Text>
+                            31
                         </Flex>
                     </Flex>
                 </Flex>
                 {/* ------------------------------------Description------------------------------------- */}
-                <Flex textColor="#fff" fontSize="20px">
+                <Flex flexDirection="column" textColor="#fff" fontSize="20px">
                     Description
                     <Text fontWeight="300" textColor="#fff" fontSize="14px">
                         Gloves protect from rope burn and splinters. Gold epaulettes complete the Admiral Jacket. Lover's blue scarf and an emergency dagger on each bicep...
@@ -100,7 +100,7 @@ const BuyItem = () => {
                         <Text fontWeight="300" textColor="#fff" fontSize="16px">See more {'>'}</Text>
                     </Flex>
                     {/* --------Gloves------- */}
-                    <Flex>
+                    <Flex alignItems="center">
                         <Image alt="asset img" w="60px" h="60px" src="buyitem/img_item1.png"></Image>
                         <Flex flexDirection="column"  fontWeight="300" textColor="#fff" fontSize="16px">
                             Admiral Gloves
@@ -110,7 +110,7 @@ const BuyItem = () => {
                         <Image alt="overview img" w="40px" h="40px" src="buyitem/img_attr_type1.png"></Image>
                     </Flex>
                     {/* ---------Jacket--------- */}
-                    <Flex>
+                    <Flex alignItems="center">
                         <Image alt="asset img"  w="60px" h="60px" src="buyitem/img_item1.png"></Image>
                         <Flex flexDirection="column" fontWeight="300" textColor="#fff" fontSize="16px">
                             Admiral Jacket
@@ -120,7 +120,7 @@ const BuyItem = () => {
                         <Image alt="overview img" w="40px" h="40px" src="buyitem/img_attr_type2.png"></Image>
                     </Flex>
                     {/* --------------Boots-------------- */}
-                    <Flex>
+                    <Flex alignItems="center">
                         <Image alt="asset img" w="60px" h="60px" src="buyitem/img_item1.png"></Image>
                         <Flex flexDirection="column" fontWeight="300" textColor="#fff" fontSize="16px">
                             Admiral Boots
