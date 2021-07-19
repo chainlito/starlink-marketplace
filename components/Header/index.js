@@ -13,6 +13,7 @@ import {
 import { 
     SearchIcon
 } from '@chakra-ui/icons';
+import CustomSearchbox from '../CustomSearchbox';
 
 const Header = () => {
     return (
@@ -21,12 +22,7 @@ const Header = () => {
                 <Image src={"logo.ico"} alignSelf="center" alt="ico" w="30px" h="30px"/>
                 <Text fontWeight="400" fontSize="20px" ml="0.5rem">STARLINK</Text>
             </Flex>
-            <Flex alignItems="center" alignSelf="center" bg="transparent" _focusWithin={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} borderRadius="6px" h="2.5rem" w="30%" p="2px">
-                <Flex alignItems="center" alignSelf="center" borderRadius="5px" h="100%" w="100%" bg="#171e3a" p="0.5rem">
-                    <Image alt="ico search" src="header/ico_search.png" m="0 1rem 0 0.5rem" />
-                    <Input textColor="white" w="100%" _focus={{ 'outline': 'none',  }} placeholder="Search" _placeholder={{ color: '#fff' }} bg="#171e3a" border="none" fontSize="15px"/>
-                </Flex>
-            </Flex>
+            <Flex w="30%" h="2.5rem" alignItems="center" alignSelf="center"><CustomSearchbox /></Flex>
             <Flex w="30%" justifyContent="space-between" alignSelf="center" >
                 <Flex textColor="#fff" fontWeight="400" fontSize="16px" cursor="pointer">HOME</Flex>
                 <Flex textColor="#fff" fontWeight="400" fontSize="16px" cursor="pointer">MARKET</Flex>
