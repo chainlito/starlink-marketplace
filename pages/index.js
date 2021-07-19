@@ -7,7 +7,7 @@ import ItemList from '../components/ItemList';
 
 export default function Home() {
   return (
-    <Flex w="100%" h="100%">
+    <Flex w="100%" h="100%" mt="1.5rem" mr="3rem">
       <ShopCategory />
       <ItemList />
     </Flex>
