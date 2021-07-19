@@ -66,7 +66,7 @@ const BuyItem = () => {
                         <Flex flexDirection="column">
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="12px">TAGS</Flex>
                             <Flex h="30px" borderRadius="15px" mt="1rem" bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" p="2px" alignItems="center">
-                                <Flex as="button" border="none" w="100%" h="100%" borderRadius="15px" bg="#131A32" textColor="#fff" fontSize="10px" fontWeight="300" alignItems="center" p="0 1rem 0 1rem">
+                                <Flex as="button" cursor="pointer" border="none" w="100%" h="100%" borderRadius="15px" bg="#131A32" textColor="#fff" fontSize="10px" fontWeight="300" alignItems="center" p="0 1rem 0 1rem">
                                     PIRATES
                                 </Flex>
                             </Flex>

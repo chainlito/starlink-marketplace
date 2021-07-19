@@ -4,10 +4,19 @@ import {
     Image,
     Text,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 const ItemCard = ({item}) => {
+
+    const router = useRouter();
+
+    const handleClick = e => {
+        e.preventDefault();
+        router.push('/buyitem');
+    }
+
     return (
-        <Flex w="100%" h="100%" p="2px" borderRadius="7px" bg="transparent" _hover={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} _focusWithin={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} >
+        <Flex as="button" textAlign="left" border="none" onClick={handleClick} w="100%" h="100%" p="2px" borderRadius="7px" bg="transparent" _hover={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} _focusWithin={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} >
             <Flex flexDirection="column" w="100%" h="100%" bg="#0e1429" 
                 lineHeight="0" borderRadius="6px" p="1rem" cursor="pointer"
             >
