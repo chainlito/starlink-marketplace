@@ -14,6 +14,6 @@ const CustomCheckbox = withStyles({
         },
     },
     checked: {},
-})((props) => <Flex justifyContent="center" alignItems="center" w="22px" h="22px" borderRadius="4px" bg="linear-gradient(#FDBF25, #B417EB, #0D57FF, #2D9CB4)"><Checkbox labelStyle={{color: 'white'}} color="default" {...props} /></Flex>);
+})((props) => <Flex justifyContent="center" alignItems="center" w="22px" h="22px" borderRadius="4px" bg="linear-gradient(#FDBF25, #B417EB, #0D57FF, #2D9CB4)"><Checkbox color="default" {...props} /></Flex>);
 
 export default CustomCheckbox;

@@ -5,6 +5,7 @@ import  {
     FormLabel,
     Select,
     SimpleGrid,
+    Image,
 } from '@chakra-ui/react';
 import ItemCard from '../ItemCard';
 
@@ -30,10 +31,11 @@ const ItemList = () => {
                 </Flex>
                 <Flex textColor="#bcc0c1" fontSize="14px" alignItems="center" justifyContent="flex-end">
                     <Text>Sort by</Text>
-                    <Flex h="40px" ml="1rem" bg="#1e253f" borderRadius="5px" alignItems="center" p="0.5rem">
-                        <Select textColor="white" bg="transparent" iconSize="0" border="none">
-                            <option value="new">Newest</option>
-                        </Select>
+                    <Flex h="40px" ml="1rem" bg="transparent" _focusWithin={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} borderRadius="6px" alignItems="center" p="2px">
+                        <Flex as="button" border="none" w="100%" h="100%" borderRadius="5px" justifyContent="center" alignItems="center" bg="#1e253f" p="0.5rem">
+                            <Text fontSize="13px" textColor="#fff" fontWeight="400" mr="1rem" >Newest</Text>
+                            <Image alt="arrow down" w="12px" h="8px" src="arrow_down.png" />
+                        </Flex>
                     </Flex>
                 </Flex>
             </Flex>

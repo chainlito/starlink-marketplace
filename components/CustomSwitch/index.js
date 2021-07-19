@@ -15,14 +15,14 @@ const CustomSwitch = withStyles((theme) => ({
           transform: 'translateX(28px)',
           color: theme.palette.common.white,
           '& + $track': {
-            backgroundColor: 'grey',
-            opacity: 1,
-            border: 'none',
+              background: '#131A32',
+              opacity: 1,
+              border: 'none',
           },
         },
         '&$focusVisible $thumb': {
-          color: '#52d869',
-          border: '6px solid grey',
+            color: '#52d869',
+            border: '6px solid grey',
         },
       },
       thumb: {
@@ -31,7 +31,7 @@ const CustomSwitch = withStyles((theme) => ({
       },
       track: {
         borderRadius: 26 / 2,
-        backgroundColor: '#2f2db4',
+        background: 'linear-gradient(to left, #FDBF25, #B417EB, #0D57FF, #2D9CB4)',
         opacity: 1,
         transition: theme.transitions.create(['background-color', 'border']),
       },
