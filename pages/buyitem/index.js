@@ -18,7 +18,7 @@ const BuyItem = () => {
                 <Flex w="35px" h="35px"><Socialbutton network="twitter" /></Flex>
                 <Flex w="35px" h="35px" mt="10px"><Socialbutton network="facebook" /></Flex>
             </Flex>
-            <Flex w="750px" h="550px" padding="4px" borderRadius="8px" bg="linear-gradient(180deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" m="50px">
+            <Flex w="600px" h="550px" padding="4px" borderRadius="8px" bg="linear-gradient(180deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" m="50px">
                 <Flex w="100%" h="100%" bg="#131A32" borderRadius="6px" justifyContent="center" alignItems="center">
                     <Image alt="asset image" w="350px" h="350px" src="buyitem/img_item.png"></Image>
                 </Flex>
