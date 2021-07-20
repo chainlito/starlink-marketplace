@@ -6,6 +6,7 @@ import {
     VStack,
     HStack,
 } from '@chakra-ui/react';
+import { SocialIcon } from 'react-social-icons';
 
 const Footer = () => {
     return (
@@ -40,7 +41,7 @@ const Footer = () => {
                     <Text>SOCIAL</Text>
                     <VStack spacing={15} alignItems="flex-start">
                         <HStack spacing={15}>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="17px" h="25px" alt="social" src="footer/ico_fb.png" /></Flex>
+                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="17px" h="20px" alt="social" src="footer/ico_fb.png" /></Flex>
                             <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_twitter.png" /></Flex>
                             <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_telegram.png" /></Flex>
                             <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_youtube.png" /></Flex>
