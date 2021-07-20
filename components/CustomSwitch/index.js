@@ -42,7 +42,6 @@ const CustomSwitch = withStyles((theme) => ({
       checked: {},
       focusVisible: {},
 }))(({ classes, ...props }) => {
-  console.log("class ===>", props);
     return (
       <Flex w="56px" h="28px" borderRadius="14px" bg="transparent" _hover={{ background: classes.checked?'linear-gradient(to left, #FDBF25, #B417EB, #0D57FF, #2D9CB4)': 'transparent' }} padding="2px 2px 2px 0" justifyContent="flex-start" alignItems="center">
         <Switch
