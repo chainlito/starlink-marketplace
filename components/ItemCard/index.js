@@ -22,7 +22,9 @@ const ItemCard = ({item}) => {
             >
                 <Flex>
                     <Image src="item/img_type.png" w="17px" h="17px" alt="item type"></Image>
-                    <Image src="item/img_glove.png" w="130px" h="130px" alt="item image"></Image>
+                    <Flex w="100%" justifyContent="center">
+                        <Image src="item/img_glove.png" w="130px" h="130px" alt="item image"></Image>
+                    </Flex>
                 </Flex>
                 <Text textColor="#fff" fontWeight="500" fontSize="20px">{item.title}</Text>
                 <Text textColor="rgba(255, 255, 255, 0.4)" fontSize="15px">8/10</Text>
