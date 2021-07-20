@@ -26,7 +26,7 @@ const Layout = ({children}) => {
             <Flex h="100%" ml="3rem">
                 {children}
             </Flex>
-            {path === '/buyitem' && 
+            {path != '/' && 
                 <Footer />
             }
         </Box>
