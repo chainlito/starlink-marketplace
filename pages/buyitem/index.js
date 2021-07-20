@@ -173,4 +173,4 @@ const BuyItem = () => {
     );
 }
 
-// export default BuyItem;
+export default BuyItem;
