@@ -37,7 +37,7 @@ const ItemList = () => {
                     </Flex>
                 </Flex>
             </Flex>
-            <SimpleGrid columns={4} spacing={20} mt="20px">
+            <SimpleGrid columns={4} spacing={20} m="20px 0 30px 0">
                 <ItemCard item={itemInfo} />
                 <ItemCard item={itemInfo} />
                 <ItemCard item={itemInfo} />

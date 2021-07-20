@@ -29,7 +29,7 @@ const Footer = () => {
                         </Flex>
                         <Flex flexDirection="column">
                             <Flex>Map</Flex>
-                            <Flex>Sand</Flex>
+                            <Flex>Starl</Flex>
                             <Flex>Press</Flex>
                             <Flex>Terms of use</Flex>
                             <Flex>One Pager</Flex>
