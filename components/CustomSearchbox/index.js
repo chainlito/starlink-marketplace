@@ -9,7 +9,6 @@ const CustomSearchbox = () => {
 
     const [icon, setIcon] = useState('header/ico_search.png');
     const [placeholderText, setPlaceholder] = useState('Search');
-    const form = document.getElementById('search_box');
 
     const onFocus = () => {
         setIcon('header/ico_search_selected.png');

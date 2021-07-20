@@ -14,6 +14,7 @@ import {
     SearchIcon
 } from '@chakra-ui/icons';
 import CustomSearchbox from '../CustomSearchbox';
+import LanguageSelector from '../LngSelector';
 
 const Header = () => {
     return (
@@ -31,10 +32,8 @@ const Header = () => {
                 <Flex textColor="#fff" fontWeight="400" fontSize="16px" cursor="pointer">ABOUT</Flex>
             </Flex>
             <Flex alignItems="center" alignSelf="center" w="15%" h="2.5rem" p="0.5rem" justifyContent="space-evenly">
-                <Flex w="5.5rem" justifyContent="center" alignItems="center">
-                    <Image alt="ico lng" w="20px" h="20px" src="header/ico_lng.png" mr="0.5rem" />
-                    <Text fontSize="16px" fontWeight="400" mr="1rem" >EN</Text>
-                    <Image alt="arrow down" w="12px" h="8px" src="arrow_down.png" />
+                <Flex w="5.5rem" mr="1.5rem">
+                    <LanguageSelector />
                 </Flex>
                 <Flex as="button" bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} textColor="#fff" fontSize="13px" w="5.5rem" h="2rem" alignItems="center" justifyContent="center">SIGN IN</Flex>
             </Flex>
