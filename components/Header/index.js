@@ -1,13 +1,9 @@
 import React from 'react';
 import { 
-    Box,
     Flex,
     Image,
     Text,
-    Input,
-    InputGroup,
-    InputLeftAddon,
-    Select,
+    Link,
 } from '@chakra-ui/react';
 
 import { 
@@ -26,7 +22,7 @@ const Header = () => {
             <Flex w="30%" h="50px" alignItems="center" alignSelf="center"><CustomSearchbox /></Flex>
             <Flex w="20%" justifyContent="space-between" alignSelf="center" fontSize="12px" fontWeight="700" >
                 <Flex textColor="#fff" cursor="pointer">HOME</Flex>
-                <Flex textColor="#fff" cursor="pointer">MARKET</Flex>
+                <Link href="/"><Flex textColor="#fff" cursor="pointer">MARKET</Flex></Link>
                 <Flex textColor="#fff" cursor="pointer">CREATE</Flex>
                 <Flex textColor="#fff" cursor="pointer">MAP</Flex>
                 <Flex textColor="#fff" cursor="pointer">ABOUT</Flex>

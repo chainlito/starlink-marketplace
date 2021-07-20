@@ -4,9 +4,6 @@ import {
     Text,
     Image,
     FormLabel,
-    ListItem,
-    List,
-    VStack,
 } from '@chakra-ui/react';
 import Socialbutton from '../../components/SocialButton';
 
@@ -102,7 +99,7 @@ const BuyItem = () => {
                     <Flex flexDirection="column" textColor="#fff" fontSize="20px" mt="1.5rem">
                         Description
                         <Text fontWeight="300" textColor="#fff" fontSize="14px">
-                            Gloves protect from rope burn and splinters. Gold epaulettes complete the Admiral Jacket. Lover's blue scarf and an emergency dagger on each bicep...
+                            Gloves protect from rope burn and splinters. Gold epaulettes complete the Admiral Jacket. Lover&apos;s blue scarf and an emergency dagger on each bicep...
                         </Text>
                     </Flex>
                     <Flex flexDirection="column" bg="#131A32" borderRadius="4px" padding="1.5rem">
