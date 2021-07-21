@@ -26,7 +26,7 @@ const ItemList = () => {
             <Flex w="100%" mt="1.5rem" justifyContent="space-between">
                 <Flex alignItems="center">
                     <Text fontWeight="400" textColor="#fff" fontSize="24px" fontFamily="ArcadeClassic">NFTS FOR SALE</Text>
-                    <Flex w="105px" h="40px" bg="#1d253f" ml="1.5rem" borderRadius="4px">
+                    <Flex w="105px" h="40px" bg="#1d253f" ml="1.5rem" borderRadius="4px" alignItems="center">
                         <Text w="100%" textAlign="center" fontSize="12px" textColor="rgba(255, 255, 255, 0.26)">118 results</Text>
                     </Flex>
                 </Flex>
@@ -37,7 +37,7 @@ const ItemList = () => {
                     </Flex>
                 </Flex>
             </Flex>
-            <SimpleGrid columns={4} spacing={20} m="20px 0 30px 0">
+            <SimpleGrid columns={4} spacing={5} m="20px 0 30px 0">
                 <ItemCard item={itemInfo} />
                 <ItemCard item={itemInfo} />
                 <ItemCard item={itemInfo} />
