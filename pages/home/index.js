@@ -6,7 +6,7 @@ import {
 
 const Home = () => {
     return (
-        <Flex w="100%" h="100%" opacity="0.5">
+        <Flex bg="transparent" w="100%" h="100%" opacity="0.5">
             <video autoPlay loop muted
                 style={{
                     position: 'absolute',

@@ -18,9 +18,9 @@ const ItemCard = ({item}) => {
     return (
         <Flex as="button" textAlign="left" border="none" onClick={handleClick} w="100%" h="100%" p="2px" borderRadius="7px" bg="transparent" _hover={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} _focusWithin={{ background: "linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" }} >
             <Flex flexDirection="column" w="100%" h="100%" bg="#0e1429" 
-                lineHeight="0" borderRadius="6px" p="1rem" cursor="pointer"
+                lineHeight="30px" borderRadius="6px" p="1rem" cursor="pointer"
             >
-                <Flex>
+                <Flex mb="1rem">
                     <Image src="item/img_type.png" w="17px" h="17px" alt="item type"></Image>
                     <Flex w="100%" justifyContent="center">
                         <Image src="item/img_glove.png" w="130px" h="130px" alt="item image"></Image>
