@@ -19,7 +19,7 @@ const Home = () => {
                     zIndex: '-1',
                 }}
             >
-                <source src="/home.mp4" type="video/mp4" />
+                <source src="/STARL_Intro.mp4" type="video/mp4" />
             </video>
             <Flex h="750px"></Flex>
         </Flex>
