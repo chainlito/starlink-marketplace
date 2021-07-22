@@ -9,15 +9,17 @@ import {
 import CustomSearchbox from '../CustomSearchbox';
 import LanguageSelector from '../LngSelector';
 import ConnectModal from '../ConnectModal';
-import { useWeb3Context } from 'web3-react';
+import { useWallet } from 'use-wallet';
 import Web3 from 'web3';
 
 const Header = () => {
 
+    const wallet = useWallet();
     const [account, setAccount] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = () => {
+        console.log({account});
         if (!account) {
             setIsOpen(true);
         }
@@ -28,28 +30,27 @@ const Header = () => {
     };
 
     const walletConnected = useCallback(async() => {
-        const web3 = new Web3(window.ethereum);
-        const accounts = await web3.eth.getAccounts();
-        if (account && account != accounts[0]) {
+        if (account && account != wallet.account) {
             onDisconnect();
         }
-    }, [account]);
+    }, [account, wallet]);
 
-    const onDisconnect = async() => {
-        console.log("disconnected");
+    const onDisconnect = () => {
         localStorage.removeItem('account');
         setAccount(null);
     };
 
     useEffect(() => {
-        if (account) {
-            walletConnected();
+        const account = localStorage.getItem('account');
+        if (account && wallet.status === 'connected') {
+            setIsOpen(false);
         }
-    }, [walletConnected, account]);
+    }, [wallet]);
 
     useEffect(() => {
         const interval = setInterval(function() {
             const account = localStorage.getItem('account');
+            console.log({account});
             if (account) {
                 setIsOpen(false);
                 setAccount(account);

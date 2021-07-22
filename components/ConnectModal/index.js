@@ -17,26 +17,14 @@ import Web3Modal from 'web3modal';
 import CustomCheckbox from '../CustomCheckbox';
 
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import WalletLink from 'walletlink';
-import { useState } from "react";
-import { resolve } from "bluebird";
-import { RequireObjectCoercible } from "es-abstract";
-import { reject } from "lodash";
+import WalletLink from "walletlink";
 
 const ConnectModal = (props) => {
 
     let selectedAccount;
 
     const connectMetaMaskWeb3Modal = () => {
-        const providerOptions = {
-            injected: {
-                display: {
-                    name: 'Injected',
-                    description: 'Metamask',
-                },
-                package: null,
-            }
-        };
+        const providerOptions = {};
     
         const web3Modal = new Web3Modal({
             cacheProvider: false, // optional
@@ -48,11 +36,12 @@ const ConnectModal = (props) => {
     }
 
     const connectWallnetConnectWeb3Modal = () => {
+        const infuraId = "16d62dee5d09404dac52b6933c58a000";
         const providerOptions = {
             walletconnect: {
                 package: WalletConnectProvider,
                 options: {
-                    infuraId: "INFURA_ID",
+                    infuraId
                 }
             },
         };
@@ -66,26 +55,21 @@ const ConnectModal = (props) => {
         return web3Modal;
     }
 
-    const connectWalletLinkWeb3Modal = async() => {
+    const connectWalletLinkWeb3Modal = () => {
+        const infuraId = "16d62dee5d09404dac52b6933c58a000";
         const providerOptions = {
             walletlink: {
                 package: WalletLink,
                 options: {
-                    rpc: "",
-                    chainId: 1,
                     appName: 'starlink-marketplace',
+                    infuraId,
+                    chainId: 1,
+                    appLogoUrl: null,
+                    darkMode: false,
+                    rpc: "",
                 },
             }
         };
-
-        const walletLink = new WalletLink();
-        try {
-            const provider = walletLink.makeWeb3Provider("", 1);
-            await provider.enable();
-            resolve(provider);
-        } catch(e) {
-            reject(e);
-        }
     
         const web3Modal = new Web3Modal({
             cacheProvider: false, // optional
@@ -96,33 +80,12 @@ const ConnectModal = (props) => {
         return web3Modal;
     }
 
-    const fetchAccountData = async() => {
-
-        // await window.web3.currentProvider.enable();
-        const web3 = new Web3(connectProvider);
-      
-        console.log("Web3 instance is", web3);
-      
-        const accounts = await web3.eth.getAccounts();
-      
-        console.log("Got accounts", accounts);
-        selectedAccount = accounts[0];
-      
-        const rowResolvers = accounts.map(async (address) => {
-          const balance = await web3.eth.getBalance(address);
-          const ethBalance = web3.utils.fromWei(balance, "ether");
-          const humanFriendlyBalance = parseFloat(ethBalance).toFixed(4);
-        });
-
-        await Promise.all(rowResolvers);
-    };
-
     const connectWallet = async(wallet) => {
         let web3Modal;
 
         if (wallet === 'metamask') web3Modal = connectMetaMaskWeb3Modal();
         if (wallet === 'walletconnect') web3Modal = connectWallnetConnectWeb3Modal();
-        if (wallet === 'coinbase') web3Modal = connectWalletLinkWeb3Modal();
+        // if (wallet === 'coinbase') web3Modal = connectWalletLinkWeb3Modal();
 
         const provider = await web3Modal.connect();
 
@@ -131,21 +94,6 @@ const ConnectModal = (props) => {
         const address = accounts[0];
 
         localStorage.setItem('account', address);
-
-        // Subscribe to accounts change
-        // provider.on("accountsChanged", (accounts) => {
-        //     fetchAccountData();
-        // });
-
-        // Subscribe to chainId change
-        // provider.on("chainChanged", (chainId) => {
-        //     fetchAccountData();
-        // });
-
-        // Subscribe to networkId change
-        // provider.on("networkChanged", (networkId) => {
-        //     fetchAccountData();
-        // });
     };
 
     return (
@@ -233,7 +181,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        onClick={() => connectWallet('coinbase')}
+                        // onClick={() => connectWallet('coinbase')}
                         p="1px"
                         transition="0.3s"
                         _hover={{
