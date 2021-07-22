@@ -15,20 +15,82 @@ import Web3 from 'web3';
 import Web3Modal from 'web3modal';
 
 import CustomCheckbox from '../CustomCheckbox';
+
+import WalletConnectProvider from '@walletconnect/web3-provider';
+import WalletLink from 'walletlink';
 import { useState } from "react";
+import { resolve } from "bluebird";
+import { RequireObjectCoercible } from "es-abstract";
+import { reject } from "lodash";
 
 const ConnectModal = (props) => {
 
     let selectedAccount;
-    const [connectProvider, setProvider] = useState(null);
 
-    const connectWeb3Modal = () => {
-        const providerOptions = {};
+    const connectMetaMaskWeb3Modal = () => {
+        const providerOptions = {
+            injected: {
+                display: {
+                    name: 'Injected',
+                    description: 'Metamask',
+                },
+                package: null,
+            }
+        };
     
         const web3Modal = new Web3Modal({
             cacheProvider: false, // optional
             providerOptions, // required
             disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
+        });
+
+        return web3Modal;
+    }
+
+    const connectWallnetConnectWeb3Modal = () => {
+        const providerOptions = {
+            walletconnect: {
+                package: WalletConnectProvider,
+                options: {
+                    infuraId: "INFURA_ID",
+                }
+            },
+        };
+    
+        const web3Modal = new Web3Modal({
+            cacheProvider: false, // optional
+            providerOptions, // required
+            disableInjectedProvider: true, // optional. For MetaMask / Brave / Opera.
+        });
+
+        return web3Modal;
+    }
+
+    const connectWalletLinkWeb3Modal = async() => {
+        const providerOptions = {
+            walletlink: {
+                package: WalletLink,
+                options: {
+                    rpc: "",
+                    chainId: 1,
+                    appName: 'starlink-marketplace',
+                },
+            }
+        };
+
+        const walletLink = new WalletLink();
+        try {
+            const provider = walletLink.makeWeb3Provider("", 1);
+            await provider.enable();
+            resolve(provider);
+        } catch(e) {
+            reject(e);
+        }
+    
+        const web3Modal = new Web3Modal({
+            cacheProvider: false, // optional
+            providerOptions, // required
+            disableInjectedProvider: true, // optional. For MetaMask / Brave / Opera.
         });
 
         return web3Modal;
@@ -55,8 +117,13 @@ const ConnectModal = (props) => {
         await Promise.all(rowResolvers);
     };
 
-    const connectMetaMask = async() => {
-        const web3Modal = connectWeb3Modal();
+    const connectWallet = async(wallet) => {
+        let web3Modal;
+
+        if (wallet === 'metamask') web3Modal = connectMetaMaskWeb3Modal();
+        if (wallet === 'walletconnect') web3Modal = connectWallnetConnectWeb3Modal();
+        if (wallet === 'coinbase') web3Modal = connectWalletLinkWeb3Modal();
+
         const provider = await web3Modal.connect();
 
         const web3 = new Web3(provider);
@@ -122,7 +189,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        onClick={connectMetaMask}
+                        onClick={() => connectWallet('metamask')}
                         p="1px"
                         transition="0.3s"
                         _hover={{
@@ -144,7 +211,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        // onClick={}
+                        onClick={() => connectWallet('walletconnect')}
                         p="1px"
                         transition="0.3s"
                         _hover={{
@@ -166,7 +233,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        // onClick={}
+                        onClick={() => connectWallet('coinbase')}
                         p="1px"
                         transition="0.3s"
                         _hover={{
