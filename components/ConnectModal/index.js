@@ -36,8 +36,8 @@ const ConnectModal = (props) => {
 
     const fetchAccountData = async() => {
 
-        await window.web3.currentProvider.enable();
-        const web3 = new Web3(window.web3.currentProvider);
+        // await window.web3.currentProvider.enable();
+        const web3 = new Web3(connectProvider);
       
         console.log("Web3 instance is", web3);
       
@@ -57,11 +57,28 @@ const ConnectModal = (props) => {
 
     const connectMetaMask = async() => {
         const web3Modal = connectWeb3Modal();
-        const provider = web3Modal.connect();
+        const provider = await web3Modal.connect();
 
-        setProvider(provider);
-        
-        await fetchAccountData();
+        const web3 = new Web3(provider);
+        const accounts = await web3.eth.getAccounts();
+        const address = accounts[0];
+
+        localStorage.setItem('account', address);
+
+        // Subscribe to accounts change
+        // provider.on("accountsChanged", (accounts) => {
+        //     fetchAccountData();
+        // });
+
+        // Subscribe to chainId change
+        // provider.on("chainChanged", (chainId) => {
+        //     fetchAccountData();
+        // });
+
+        // Subscribe to networkId change
+        // provider.on("networkChanged", (networkId) => {
+        //     fetchAccountData();
+        // });
     };
 
     return (
