@@ -17,11 +17,62 @@ import Web3Modal from 'web3modal';
 import CustomCheckbox from '../CustomCheckbox';
 
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import WalletLink from "walletlink";
+import Fortmatic from 'fortmatic';
+import Portis from '@portis/web3';
+import { useState } from "react";
+
+import { useWallet } from 'use-wallet';
 
 const ConnectModal = (props) => {
 
-    let selectedAccount;
+    const wallet = useWallet();
+    const [showModal, setShowModal] = useState(props.isOpen);
+
+    const connectWallet = (connector) => {
+        wallet.connect(connector).then(res => {
+            if (res) console.log({res});
+        })
+        .catch(e => {
+
+        });
+    }
+
+    const connectWalletWithModal = async(wallet) => {
+        const web3Modal = new Web3Modal({
+            providerOptions: {
+                cacheProvider: true,
+                walletconnect: {
+                    package: WalletConnectProvider,
+                    options: {
+                        infuraId: '16d62dee5d09404dac52b6933c58a000'
+                    }
+                },
+                fortmatic: {
+                    package: Fortmatic,
+                    options: {
+                        key: "pk_live_6D08A510AD752EA5",
+                    }
+                },
+                portis: {
+                    package: Portis,
+                    options: {
+                        id: 'f67b5688-d623-4826-8f2c-160b51a09b38',
+                    }
+                }
+            }
+        });
+
+        const provider = await web3Modal.connectTo(wallet);
+
+        const web3 = new Web3(provider);
+        const connected = await web3.eth.getAccounts();
+        
+        if (connected) {
+            window.localStorage.setItem('connected', connected);
+            setShowModal(false);
+        }
+        console.log({connected});
+    }
 
     const connectMetaMaskWeb3Modal = () => {
         const providerOptions = {};
@@ -30,26 +81,6 @@ const ConnectModal = (props) => {
             cacheProvider: false, // optional
             providerOptions, // required
             disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
-        });
-
-        return web3Modal;
-    }
-
-    const connectWallnetConnectWeb3Modal = () => {
-        const infuraId = "16d62dee5d09404dac52b6933c58a000";
-        const providerOptions = {
-            walletconnect: {
-                package: WalletConnectProvider,
-                options: {
-                    infuraId
-                }
-            },
-        };
-    
-        const web3Modal = new Web3Modal({
-            cacheProvider: false, // optional
-            providerOptions, // required
-            disableInjectedProvider: true, // optional. For MetaMask / Brave / Opera.
         });
 
         return web3Modal;
@@ -79,22 +110,6 @@ const ConnectModal = (props) => {
 
         return web3Modal;
     }
-
-    const connectWallet = async(wallet) => {
-        let web3Modal;
-
-        if (wallet === 'metamask') web3Modal = connectMetaMaskWeb3Modal();
-        if (wallet === 'walletconnect') web3Modal = connectWallnetConnectWeb3Modal();
-        // if (wallet === 'coinbase') web3Modal = connectWalletLinkWeb3Modal();
-
-        const provider = await web3Modal.connect();
-
-        const web3 = new Web3(provider);
-        const accounts = await web3.eth.getAccounts();
-        const address = accounts[0];
-
-        localStorage.setItem('account', address);
-    };
 
     return (
         <Modal size="sm" isOpen={props.isOpen} onClose={props.onClose}>
@@ -137,7 +152,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        onClick={() => connectWallet('metamask')}
+                        onClick={() => connectWallet('injected')}
                         p="1px"
                         transition="0.3s"
                         _hover={{
@@ -181,7 +196,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        // onClick={() => connectWallet('coinbase')}
+                        onClick={() => connectWallet('walletlink')}
                         p="1px"
                         transition="0.3s"
                         _hover={{
@@ -203,7 +218,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        // onClick={}
+                        onClick={() => connectWallet('fortmatic')}
                         p="1px"
                         transition="0.3s"
                         _hover={{
@@ -225,7 +240,7 @@ const ConnectModal = (props) => {
                     <Flex
                         flexDirection="row"
                         cursor="pointer"
-                        // onClick={}
+                        onClick={() => connectWallet('portis')}
                         p="1px"
                         transition="0.3s"
                         _hover={{

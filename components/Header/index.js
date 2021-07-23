@@ -19,8 +19,8 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = () => {
-        console.log({account});
         if (!account) {
+            console.log("account is false");
             setIsOpen(true);
         }
     };
@@ -29,34 +29,20 @@ const Header = () => {
         setIsOpen(false);
     };
 
-    const walletConnected = useCallback(async() => {
-        if (account && account != wallet.account) {
-            onDisconnect();
-        }
-    }, [account, wallet]);
-
     const onDisconnect = () => {
-        localStorage.removeItem('account');
-        setAccount(null);
+        wallet.reset();
     };
 
     useEffect(() => {
-        const account = localStorage.getItem('account');
-        if (account && wallet.status === 'connected') {
-            setIsOpen(false);
+        if (wallet.status === 'connected') {
+            const account = wallet.account;
+            setAccount(account);
         }
     }, [wallet]);
 
     useEffect(() => {
-        const interval = setInterval(function() {
-            const account = localStorage.getItem('account');
-            console.log({account});
-            if (account) {
-                setIsOpen(false);
-                setAccount(account);
-            }
-        }, 1000);        
-    }, []);
+        if (account) setIsOpen(false);
+    }, [account])
 
     return (
         <Flex w="100%" h="80px" bg="#1d253f" textColor="#fff" justifyContent="space-between">
@@ -78,7 +64,7 @@ const Header = () => {
                     <LanguageSelector />
                 </Flex>
                 {account ? (
-                    <Flex as="button" onClick={onDisconnect} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" border="solid 1px" borderColor="rgba(255, 255, 255, 0.2)" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} style={{ "-webkit-background-clip": "text" }} textColor="transparent" fontWeight="700" fontSize="12px" w="6rem" h="2rem" borderRadius="1rem" alignItems="center" justifyContent="center">{account.substring(0, 6)}...{account.substring(account.length - 4, account.length)}</Flex>
+                    <Flex as="button" onClick={onDisconnect} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" border="solid 1px" borderColor="rgba(255, 255, 255, 0.2)" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} style={{ "-webkit-background-clip": "text" }} textColor="transparent" fontWeight="700" fontSize="12px" w="6rem" h="2rem" borderRadius="1rem" alignItems="center" justifyContent="center">{account.substring(0, 4)}...{account.substring(account.length - 4, account.length)}</Flex>
                 ) : (
                     <Flex as="button" onClick={openModal} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} textColor="#fff" fontSize="13px" w="6rem" h="2rem" alignItems="center" justifyContent="center">SIGN IN</Flex>
                 )}

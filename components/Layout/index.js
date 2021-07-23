@@ -22,22 +22,15 @@ const Layout = ({children}) => {
     }, [router]);
 
     return (
-        <UseWalletProvider 
-            chainId={1}
-            connectors={{
-                walletconnect: { rpcUrl: "https://mainnet.eth.aragon.network/" },
-            }}
-        >
-            <Box w="100%" h="100%">
-                <Header />
-                <Flex h="100%" ml="3rem">
-                    {children}
-                </Flex>
-                {path != '/' && 
-                    <Footer />
-                }
-            </Box>
-        </UseWalletProvider>
+        <Box w="100%" h="100%">
+            <Header />
+            <Flex h="100%" ml="3rem">
+                {children}
+            </Flex>
+            {path != '/' && 
+                <Footer />
+            }
+        </Box>
     );
 }
 
