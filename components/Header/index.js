@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import { 
     Flex,
     Image,
@@ -9,52 +9,54 @@ import {
 import CustomSearchbox from '../CustomSearchbox';
 import LanguageSelector from '../LngSelector';
 import ConnectModal from '../ConnectModal';
-import { useWeb3Context } from 'web3-react';
+import { useWallet } from 'use-wallet';
+import Web3 from 'web3';
 
 const Header = () => {
 
-    const context = useWeb3Context();
-    const { account } = context;
+    const wallet = useWallet();
+    const [account, setAccount] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = () => {
-        // if (!window.ethereum) {
+        console.log({account});
+        if (!account) {
             setIsOpen(true);
-        // }
+        }
     };
 
     const cloesModal = () => {
         setIsOpen(false);
     };
 
-    const walletConnected = () => {
-        console.log({account});
-        if (account) {
-            return true;
+    const walletConnected = useCallback(async() => {
+        if (account && account != wallet.account) {
+            onDisconnect();
         }
-        return false;
-    };
+    }, [account, wallet]);
 
-    const onDisconnect = async() => {
-
-        const provider = window.web3.currentProvider;
-
-        console.log({provider});
-
-        if(provider.close) {
-          await provider.close();
-        }
+    const onDisconnect = () => {
+        localStorage.removeItem('account');
+        setAccount(null);
     };
 
     useEffect(() => {
-        if (window.ethereum) {
+        const account = localStorage.getItem('account');
+        if (account && wallet.status === 'connected') {
             setIsOpen(false);
         }
-    }, [account]);
+    }, [wallet]);
 
     useEffect(() => {
-        console.log({isOpen});
-    },[isOpen]);
+        const interval = setInterval(function() {
+            const account = localStorage.getItem('account');
+            console.log({account});
+            if (account) {
+                setIsOpen(false);
+                setAccount(account);
+            }
+        }, 1000);        
+    }, []);
 
     return (
         <Flex w="100%" h="80px" bg="#1d253f" textColor="#fff" justifyContent="space-between">
@@ -75,10 +77,10 @@ const Header = () => {
                 <Flex w="5.5rem" mr="1.5rem">
                     <LanguageSelector />
                 </Flex>
-                {walletConnected() ? (
-                    <Flex as="button" onClick={onDisconnect} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} textColor="#fff" fontSize="13px" w="5.5rem" h="2rem" alignItems="center" justifyContent="center">WalletAddress</Flex>
+                {account ? (
+                    <Flex as="button" onClick={onDisconnect} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" border="solid 1px" borderColor="rgba(255, 255, 255, 0.2)" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} style={{ "-webkit-background-clip": "text" }} textColor="transparent" fontWeight="700" fontSize="12px" w="6rem" h="2rem" borderRadius="1rem" alignItems="center" justifyContent="center">{account.substring(0, 6)}...{account.substring(account.length - 4, account.length)}</Flex>
                 ) : (
-                    <Flex as="button" onClick={openModal} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} textColor="#fff" fontSize="13px" w="5.5rem" h="2rem" alignItems="center" justifyContent="center">SIGN IN</Flex>
+                    <Flex as="button" onClick={openModal} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} textColor="#fff" fontSize="13px" w="6rem" h="2rem" alignItems="center" justifyContent="center">SIGN IN</Flex>
                 )}
             </Flex>
             <Flex w="1%"></Flex>
