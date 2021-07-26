@@ -7,8 +7,8 @@ import {
 const Home = () => {
     return (
         <Flex bg="transparent" w="100%" h="100%">
-            <Flex w="100%" h="750px">
-                <Flex flexDirection="column" bg="rgba(22,25,30,0.7)" h="300px" ml="5rem" borderRadius="20px" alignSelf="center" p="30px 50px 30px 50px">
+            <Flex w="100%" h="750px" justifyContent="flex-end">
+                <Flex flexDirection="column" bg="rgba(22,25,30,0.7)" h="300px" mr="5rem" borderRadius="20px" alignSelf="center" p="30px 50px 30px 50px">
                     <Text fontSize="25px" textColor="#0084ff" fontWeight="700">Welcome To</Text>
                     <Text fontSize="60px" textColor="white" fontWeight="700">THE STARLINK</Text>
                     <Text fontSize="15px" maxW="350px" textColor="white">The First Gamified 3D Space Metaverse</Text>
