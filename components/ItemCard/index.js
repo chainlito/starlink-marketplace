@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
     Flex,
     Image,
@@ -10,6 +10,7 @@ const ItemCard = ({item}) => {
 
     const router = useRouter();
     const [videoplay, setAutoPlay] = useState(false);
+    const videoref = useRef();
 
     const handleClick = e => {
         e.preventDefault();
@@ -17,11 +18,11 @@ const ItemCard = ({item}) => {
     }
 
     const handleOver = e => {
-        setAutoPlay(true);
+        videoref.current.play();
     }
 
     const handleOut = e => {
-        setAutoPlay(false);
+        videoref.current.pause();
     }
 
     return (
@@ -29,32 +30,20 @@ const ItemCard = ({item}) => {
             <Flex flexDirection="column" w="100%" h="100%" bg="#0e1429" 
                 lineHeight="30px" borderRadius="6px" p="1rem" cursor="pointer"
             >
-                <Flex mb="1rem">
-                    <Image src="item/img_type.png" w="17px" h="17px" alt="item type"></Image>
-                    <Flex w="100%" h="100%" ml="0.5rem" justifyContent="center">
+                <Flex mb="1rem" position="relative">
+                    <Image src="item/img_type.png" w="17px" h="17px" position="absolute" top="1rem" left="1.5rem" zIndex="100" alt="item type"></Image>
+                    <Flex w="100%" h="100%" justifyContent="center">
                         <Flex w="90%">
-                            {videoplay && 
-                                <video autoPlay loop muted
-                                    style={{
-                                        width: '100%',
-                                        objectFit: 'cover',
-                                        borderRadius: '20px'
-                                    }}
-                                >
-                                    <source src="/defaultItem.mp4" type="video/mp4" />
-                                </video>
-                            }
-                            {!videoplay && 
-                                <video
-                                    style={{
-                                        width: '100%',
-                                        objectFit: 'cover',
-                                        borderRadius: '20px'
-                                    }}
-                                >
-                                    <source src="/defaultItem.mp4" type="video/mp4" />
-                                </video>
-                            }
+                            <video ref={videoref} loop muted
+                                style={{
+                                    width: '100%',
+                                    objectFit: 'cover',
+                                    borderRadius: '20px',
+                                    opacity: '0.7',
+                                }}
+                            >
+                                <source src="/defaultItem.mp4" type="video/mp4" />
+                            </video>
                         </Flex>
                     </Flex>
                 </Flex>
