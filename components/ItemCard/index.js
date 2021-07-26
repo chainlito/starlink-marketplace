@@ -14,7 +14,7 @@ const ItemCard = ({item}) => {
 
     const handleClick = e => {
         e.preventDefault();
-        // router.push('/buyitem');
+        router.push('/buyitem');
     }
 
     const handleOver = e => {
