@@ -22,9 +22,9 @@ const BuyItem = () => {
             </Flex>
             <Flex flexDirection="column" borderLeft="solid 2px" borderColor="#131A32">
                 <Flex flexDirection="column" m="50px" mb="10px">
-                    <Text lineHeight="0px" fontSize="40px" textColor="#fff" fontWeight="400">ADMIRAL GLOVES</Text>
+                    <Text fontSize="40px" textColor="#fff" fontWeight="400">ADMIRAL GLOVES</Text>
                     <Flex alignItems="center">
-                        <Text lineHeight="0px" fontSize="14px" fontWeight="400" textColor="#1365F1">Token ID: 5334...4096</Text>
+                        <Text fontSize="14px" fontWeight="400" textColor="#1365F1">Token ID: 5334...4096</Text>
                         <Image alt="copy addr" w="20px" h="20px" src="/buyitem/ico_addr_copy.png" ml="1rem" />
                     </Flex>
                     <Flex mt="1rem" alignItems="center">
@@ -102,7 +102,7 @@ const BuyItem = () => {
                             Gloves protect from rope burn and splinters. Gold epaulettes complete the Admiral Jacket. Lover&apos;s blue scarf and an emergency dagger on each bicep...
                         </Text>
                     </Flex>
-                    <Flex flexDirection="column" bg="#131A32" borderRadius="4px" padding="1.5rem">
+                    <Flex flexDirection="column" bg="#131A32" borderRadius="4px" mt="1.5rem" padding="1.5rem">
                         <Flex alignItems="center" justifyContent="space-between">
                             <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.4)" fontSize="12px">NFT FORM CREATOR</Text>
                             <Text fontWeight="300" textColor="#fff" fontSize="16px">See more {'>'}</Text>
@@ -145,7 +145,7 @@ const BuyItem = () => {
                         </Flex>
                     </Flex>
                     {/* -----------------------------Description----------------------------- */}
-                    <Flex flexDirection="column">
+                    <Flex flexDirection="column" mt="1.5rem">
                         <Text fontWeight="300" textColor="#fff" fontSize="24px">Description</Text>
                         <Flex flexDirection="column" fontWeight="300" textColor="#fff" fontSize="14px">
                             <Flex mb="1rem"><Image alt="list icon" src="/buyitem/ico_li.png" w="10px" h="10px" mr="1rem"/>When a creator designs an Asset, he has to distribute points amongst the chosen Attributes.</Flex>
