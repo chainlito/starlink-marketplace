@@ -17,7 +17,20 @@ const BuyItem = () => {
             </Flex>
             <Flex w="600px" h="550px" padding="4px" borderRadius="8px" bg="linear-gradient(180deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" m="50px">
                 <Flex w="100%" h="100%" bg="#131A32" borderRadius="6px" justifyContent="center" alignItems="center">
-                    <Image alt="asset image" w="350px" h="350px" src="/buyitem/img_item.png"></Image>
+                    <Flex w="100%" h="100%" justifyContent="center" alignItems="center">
+                        <Flex w="100%" h="100%">
+                                <video autoPlay loop muted
+                                    style={{
+                                        width: '100%',
+                                        objectFit: 'cover',
+                                        borderRadius: '5px',
+                                        opacity: '0.5',
+                                    }}
+                                >
+                                    <source src="/defaultItem.mp4" type="video/mp4" />
+                                </video>
+                        </Flex>
+                    </Flex>
                 </Flex>
             </Flex>
             <Flex flexDirection="column" borderLeft="solid 2px" borderColor="#131A32">
@@ -98,16 +111,15 @@ const BuyItem = () => {
                     {/* ------------------------------------Description------------------------------------- */}
                     <Flex flexDirection="column" textColor="#fff" fontSize="20px" mt="1.5rem">
                         Description
-                        <Text fontWeight="300" textColor="#fff" fontSize="14px">
+                        <Text fontWeight="300" textColor="#fff" fontSize="14px" mt="1rem">
                             Gloves protect from rope burn and splinters. Gold epaulettes complete the Admiral Jacket. Lover&apos;s blue scarf and an emergency dagger on each bicep...
                         </Text>
                     </Flex>
-                    <Flex flexDirection="column" bg="#131A32" borderRadius="4px" mt="1.5rem" padding="1.5rem">
+                    {/* <Flex flexDirection="column" bg="#131A32" borderRadius="4px" mt="1.5rem" padding="1.5rem">
                         <Flex alignItems="center" justifyContent="space-between">
                             <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.4)" fontSize="12px">NFT FORM CREATOR</Text>
                             <Text fontWeight="300" textColor="#fff" fontSize="16px">See more {'>'}</Text>
                         </Flex>
-                        {/* --------Gloves------- */}
                         <Flex as="button" alignItems="center" bg="#131A32" borderRadius="6px" border="solid 2px" borderColor="#1C2441" p="1rem" mb="1rem" cursor="pointer" _focus={{ borderColor: '#314DFF' }} _hover={{ borderColor: '#314DFF' }} justifyContent="space-between">
                             <Flex h="100%">
                                 <Image alt="asset img" w="60px" h="70px" src="/buyitem/img_item1.png"></Image>
@@ -119,7 +131,6 @@ const BuyItem = () => {
                             </Flex>
                             <Image alt="overview img" w="50px" h="50px" src="/buyitem/img_attr_type1.png"></Image>
                         </Flex>
-                        {/* ---------Jacket--------- */}
                         <Flex as="button" alignItems="center" bg="#131A32" borderRadius="6px" border="solid 2px" borderColor="#1C2441" p="1rem" mb="1rem" cursor="pointer" _focus={{ borderColor: '#314DFF' }} _hover={{ borderColor: '#314DFF' }} justifyContent="space-between">
                             <Flex h="100%">
                                 <Image alt="asset img"  w="60px" h="70px" src="/buyitem/img_item2.png"></Image>
@@ -131,7 +142,6 @@ const BuyItem = () => {
                             </Flex>
                             <Image alt="overview img" w="40px" h="40px" src="/buyitem/img_attr_type2.png"></Image>
                         </Flex>
-                        {/* --------------Boots-------------- */}
                         <Flex as="button" alignItems="center" bg="#131A32" borderRadius="6px" border="solid 2px" borderColor="#1C2441" p="1rem" mb="1rem" cursor="pointer" _focus={{ borderColor: '#314DFF' }} _hover={{ borderColor: '#314DFF' }} justifyContent="space-between">
                             <Flex h="100%">
                                 <Image alt="asset img" w="60px" h="70px" src="/buyitem/img_item3.png"></Image>
@@ -143,10 +153,10 @@ const BuyItem = () => {
                             </Flex>
                             <Image alt="overview img" w="40px" h="40px" src="/buyitem/img_attr_type2.png"></Image>
                         </Flex>
-                    </Flex>
+                    </Flex> */}
                     {/* -----------------------------Description----------------------------- */}
                     <Flex flexDirection="column" mt="1.5rem">
-                        <Text fontWeight="300" textColor="#fff" fontSize="24px">Description</Text>
+                        <Text fontWeight="300" textColor="#fff" fontSize="24px" mb="1rem">Description</Text>
                         <Flex flexDirection="column" fontWeight="300" textColor="#fff" fontSize="14px">
                             <Flex mb="1rem"><Image alt="list icon" src="/buyitem/ico_li.png" w="10px" h="10px" mr="1rem"/>When a creator designs an Asset, he has to distribute points amongst the chosen Attributes.</Flex>
                             <Flex mb="1rem"><Image alt="list icon" src="/buyitem/ico_li.png" w="10px" h="10px" mr="1rem"/>A creator can change the amount of the attributes while creating an asset.</Flex>
