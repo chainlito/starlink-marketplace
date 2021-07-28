@@ -16,99 +16,21 @@ import Web3Modal from 'web3modal';
 
 import CustomCheckbox from '../CustomCheckbox';
 
-import WalletConnectProvider from '@walletconnect/web3-provider';
-import Fortmatic from 'fortmatic';
-import Portis from '@portis/web3';
-import { useState } from "react";
-
 import { useWallet } from 'use-wallet';
 
 const ConnectModal = (props) => {
 
-    const wallet = useWallet();
-    const [showModal, setShowModal] = useState(props.isOpen);
+    const wallet = useWallet(); 
 
     const connectWallet = (connector) => {
+        console.log({connector});
         wallet.connect(connector).then(res => {
+            console.log({res});
             if (res) console.log({res});
         })
         .catch(e => {
 
         });
-    }
-
-    const connectWalletWithModal = async(wallet) => {
-        const web3Modal = new Web3Modal({
-            providerOptions: {
-                cacheProvider: true,
-                walletconnect: {
-                    package: WalletConnectProvider,
-                    options: {
-                        infuraId: '16d62dee5d09404dac52b6933c58a000'
-                    }
-                },
-                fortmatic: {
-                    package: Fortmatic,
-                    options: {
-                        key: "pk_live_6D08A510AD752EA5",
-                    }
-                },
-                portis: {
-                    package: Portis,
-                    options: {
-                        id: 'f67b5688-d623-4826-8f2c-160b51a09b38',
-                    }
-                }
-            }
-        });
-
-        const provider = await web3Modal.connectTo(wallet);
-
-        const web3 = new Web3(provider);
-        const connected = await web3.eth.getAccounts();
-        
-        if (connected) {
-            window.localStorage.setItem('connected', connected);
-            setShowModal(false);
-        }
-        console.log({connected});
-    }
-
-    const connectMetaMaskWeb3Modal = () => {
-        const providerOptions = {};
-    
-        const web3Modal = new Web3Modal({
-            cacheProvider: false, // optional
-            providerOptions, // required
-            disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
-        });
-
-        return web3Modal;
-    }
-
-    const connectWalletLinkWeb3Modal = () => {
-        const infuraId = "16d62dee5d09404dac52b6933c58a000";
-        const providerOptions = {
-            walletlink: {
-                package: WalletLink,
-                options: {
-                    appName: 'starlink-marketplace',
-                    infuraId,
-                    chainId: 1,
-                    appLogoUrl: null,
-                    darkMode: false,
-                    rpc: "",
-                },
-            }
-        };
-    
-        const web3Modal = new Web3Modal({
-            cacheProvider: false, // optional
-            providerOptions, // required
-            disableInjectedProvider: true, // optional. For MetaMask / Brave / Opera.
-        });
-
-        return web3Modal;
     }
 
     return (

@@ -13,11 +13,24 @@ import {
     CloseIcon,
 } from "@chakra-ui/icons";
 
+import {
+    placeBid
+} from '../../contracts/auction';
+
 import { useState } from "react";
+import { useWallet } from 'use-wallet';
+import { ethers } from "ethers";
 
 const BuyModal = (props) => {
 
-    const [showModal, setShowModal] = useState(props.isOpen);
+    const wallet = useWallet();
+
+    const clickPlaceBid = async () => {
+        const provider = new ethers.providers.Web3Provider(wallet.ethereum);
+        const signer = await provider.getSigner();
+        const bid = await placeBid(1, 0, signer);
+        console.log({bid});
+    };
 
     return (
         <Modal size="lg" isOpen={props.isOpen} onClose={props.onClose}>
@@ -51,7 +64,7 @@ const BuyModal = (props) => {
                     </Flex>
 
                     <Flex w="100%" justifyContent="center">
-                        <Flex as="button" mt="3rem"  bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" borderRadius="15px"
+                        <Flex as="button" onClick={clickPlaceBid} mt="3rem"  bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" borderRadius="15px"
                                 _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} 
                                 textColor="#fff" fontSize="13px" fontWeight="700"
                                 w="50%" h="50px" alignItems="center" justifyContent="center">Place Bid</Flex>
