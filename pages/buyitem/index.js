@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Flex,
     Text,
@@ -6,8 +6,20 @@ import {
     FormLabel,
 } from '@chakra-ui/react';
 import Socialbutton from '../../components/SocialButton';
+import BuyModal from '../../components/BuyModal';
 
 const BuyItem = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const cloesModal = () => {
+        setIsOpen(false);
+    };
+
     return (
         <Flex w="100%" h="100%" ml="200px">
             <Flex flexDirection="column" h="100%" bg="#141B34" borderRadius="8px" 
@@ -175,10 +187,11 @@ const BuyItem = () => {
                             </Flex>
                         </Flex>
                         <Text color="#fff" fontSize="15px" fontWeight="500">FAVORITE</Text>
-                        <Flex as="button" w="30%" h="60px" justifyContent="center" alignItems="center" color="#fff" fontSize="15px" fontWeight="500" bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }}>BUY NOW</Flex>
+                        <Flex as="button" onClick={openModal} w="30%" h="60px" justifyContent="center" alignItems="center" color="#fff" fontSize="15px" fontWeight="500" bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }}>BUY NOW</Flex>
                     </Flex>
                 </Flex>
             </Flex>
+            <BuyModal isOpen={isOpen} onClose={cloesModal}/>
         </Flex>
     );
 }

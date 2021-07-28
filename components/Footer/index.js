@@ -5,8 +5,10 @@ import {
     Text,
     VStack,
     HStack,
+    Link,
 } from '@chakra-ui/react';
 import { SocialIcon } from 'react-social-icons';
+import Socialbutton from '../SocialButton';
 
 const Footer = () => {
     return (
@@ -20,20 +22,23 @@ const Footer = () => {
                     <Text>PAGES</Text>
                     <Flex textColor="rgba(255, 255, 255, 0.5)" fontSize="14px" lineHeight="35px" justifyContent="space-between">
                         <Flex flexDirection="column">
-                            <Flex>News</Flex>
-                            <Flex>Create</Flex>
-                            <Flex>Market</Flex>
-                            <Flex>Play</Flex>
-                            <Flex>Whitepaper</Flex>
-                            <Flex>FAQ</Flex>
+                            <Flex _hover={{ color: '#fff' }}>News</Flex>
+                            <Flex _hover={{ color: '#fff' }}>Create</Flex>
+                            <Flex _hover={{ color: '#fff' }}>Market</Flex>
+                            <Link href="/" style={{ textDecoration: 'none' }} _focus={{ border: 'none' }}>
+                                <Flex _hover={{ color: '#fff' }}>Play</Flex></Link>
+                            <Link href="https://www.starltoken.com/whitepaper.pdf" style={{ textDecoration: 'none' }} _focus={{ border: 'none' }} isExternal>
+                                <Flex _hover={{ color: '#fff' }}>Whitepaper</Flex></Link>
+                                <Link href="/" style={{ textDecoration: 'none' }} _focus={{ border: 'none' }}>
+                                    <Flex _hover={{ color: '#fff' }}>FAQ</Flex></Link>
                         </Flex>
                         <Flex flexDirection="column">
-                            <Flex>Map</Flex>
-                            <Flex>Starl</Flex>
-                            <Flex>Press</Flex>
-                            <Flex>Terms of use</Flex>
-                            <Flex>One Pager</Flex>
-                            <Flex>Social</Flex>
+                            <Flex _hover={{ color: '#fff' }}>Map</Flex>
+                            <Flex _hover={{ color: '#fff' }}>Starl</Flex>
+                            <Flex _hover={{ color: '#fff' }}>Press</Flex>
+                            <Flex _hover={{ color: '#fff' }}>Terms of use</Flex>
+                            <Link href="https://installers.sandbox.game/The_Sandbox_One_Pager_2020.pdf" style={{ textDecoration: 'none' }} _focus={{ border: 'none' }} isExternal><Flex _hover={{ color: '#fff' }}>One Pager</Flex></Link>
+                            <Flex _hover={{ color: '#fff' }}>Social</Flex>
                         </Flex>
                     </Flex>
                 </Flex>
@@ -41,16 +46,16 @@ const Footer = () => {
                     <Text>SOCIAL</Text>
                     <VStack spacing={15} alignItems="flex-start" mt="0.5rem">
                         <HStack spacing={15}>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="17px" h="20px" alt="social" src="footer/ico_fb.png" /></Flex>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_twitter.png" /></Flex>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_telegram.png" /></Flex>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_youtube.png" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="facebook" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="twitter" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="telegram" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="youtube" /></Flex>
                         </HStack>
                         <HStack spacing={15}>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_discord.png" /></Flex>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_m.png" /></Flex>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_instargram.png" /></Flex>
-                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_message.png" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="discord" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="medium" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="instagram" /></Flex>
+                            <Flex w="35px" h="35px"><Socialbutton network="twitch" /></Flex>
                         </HStack>
                     </VStack>
                 </Flex>
