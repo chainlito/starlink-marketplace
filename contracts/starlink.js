@@ -1,12 +1,25 @@
 import { ethers } from "ethers";
-import abi from './auction.abi.json';
+import abi from './starlink.abi.json';
 
-const auction_address = "0xac82ffc8c3fd1171ecdda650670f29fb2e6f02d8";
+const starlink_address = "0x5a168798df2b9d84e28958702156b036927a9e29";
 
-export async function allowance(tokenId, amount, signer) {
+export async function checkAllowance(owner, sender, signer) {
     try {
-        const contract = new ethers.Contract(auction_address, abi, signer);
-        await contract.placeBid(tokenId, amount, { gasLimit: 35000 });
+        const contract = new ethers.Contract(starlink_address, abi, signer);
+        const res = await contract.allowance(owner, sender);
+        console.log({res});
+        return res;
+    } catch (e) {
+        return {e};
+    }
+}
+
+export async function approveToken(sender, amount, signer) {
+    try {
+        const contract = new ethers.Contract(starlink_address, abi, signer);
+        const res = await contract.approve(sender, amount);
+        console.log({res});
+        return res;
     } catch (e) {
         return {e};
     }

