@@ -20,8 +20,8 @@ const ItemList = () => {
     return (
         <Flex flexDirection="column" w="100%" h="100%" ml="4rem">
             <Flex flexDirection="column">
-                <FormLabel textColor="#fff" fontSize="32px" fontWeight="400" fontFamily="ArcadeClassic" mt="1.5rem" mb="1.5rem">WELCOME TO THE NFT MARKETPLACE</FormLabel>
-                <FormLabel fontSize="16px" fontWeight="400" textColor="rgba(255, 255, 255, 0.4)">Here you can search and buy creator&apos;s ASSETS with STARL to incorporate them into your SATE</FormLabel>
+                <FormLabel textColor="#fff" fontSize="32px" fontWeight="400" fontFamily="ArcadeClassic" mt="1.5rem" mb="1.5rem">WELCOME TO THE SATE MARKETPLACE</FormLabel>
+                <FormLabel fontSize="16px" fontWeight="400" textColor="rgba(255, 255, 255, 0.4)">Here you can search and buy SATE with STARL to incorporate them into your metaverse</FormLabel>
             </Flex>
             <Flex w="100%" mt="1.5rem" justifyContent="space-between">
                 <Flex alignItems="center">

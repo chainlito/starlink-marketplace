@@ -13,7 +13,7 @@ const ShopCategory = () => {
         <Flex w="400px" h="800px" borderRadius="10px" ml="200px" p="1.5rem"
             flexDirection="column"
         >
-            <FormLabel fontSize="32px" fontWeight="400" textColor="#fff" >SHOP</FormLabel>
+            <FormLabel fontSize="32px" fontWeight="400" textColor="#fff" >Marketplace</FormLabel>
             <Flex justifyContent="space-between" alignItems="center" mt="10px">
                 <FormLabel textColor="#fff" fontSize="16px" fontWeight="400">On sale</FormLabel>
                 <CustomSwitch />

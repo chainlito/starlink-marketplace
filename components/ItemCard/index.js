@@ -33,7 +33,7 @@ const ItemCard = ({item}) => {
                 <Flex mb="1rem" position="relative">
                     <Image src="item/img_type.png" w="17px" h="17px" position="absolute" top="1rem" left="1.5rem" zIndex="100" alt="item type"></Image>
                     <Flex w="100%" h="100%" justifyContent="center">
-                        <Flex w="90%">
+                        <Flex w="100%">
                             <video ref={videoref} loop muted
                                 style={{
                                     width: '100%',
@@ -48,10 +48,10 @@ const ItemCard = ({item}) => {
                     </Flex>
                 </Flex>
                 <Text textColor="#fff" fontWeight="500" fontSize="20px">{item.title}</Text>
-                <Text textColor="rgba(255, 255, 255, 0.4)" fontSize="15px">8/10</Text>
+                <Text textColor="rgba(255, 255, 255, 0.4)" fontSize="15px">LEO</Text>
                 <Flex alignItems="center">
                     <Image src="item/coin_logo.png" w="20px" h="20px" alt="coin logo"></Image>
-                    <Text textColor="#FDB32A" fontSize="15px" fontWeight="500" ml="0.5rem">2940.00</Text>
+                    <Text textColor="#FDB32A" fontSize="15px" fontWeight="500" ml="0.5rem">2,940,350.00</Text>
                 </Flex>
             </Flex>
         </Flex>
