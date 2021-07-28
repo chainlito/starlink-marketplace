@@ -52,7 +52,8 @@ const Footer = () => {
                             <Flex w="35px" h="35px"><Socialbutton network="youtube" /></Flex>
                         </HStack>
                         <HStack spacing={15}>
-                            <Flex w="35px" h="35px"><Socialbutton network="discord" /></Flex>
+                            {/* <Flex w="35px" h="35px"><Socialbutton network="discord" /></Flex> */}
+                            <Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_discord.png" /></Flex>
                             <Flex w="35px" h="35px"><Socialbutton network="medium" /></Flex>
                             <Flex w="35px" h="35px"><Socialbutton network="instagram" /></Flex>
                             <Flex w="35px" h="35px"><Socialbutton network="twitch" /></Flex>
