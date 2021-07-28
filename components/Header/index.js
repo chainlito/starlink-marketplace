@@ -31,12 +31,15 @@ const Header = () => {
 
     const onDisconnect = () => {
         wallet.reset();
+        setAccount(null);
     };
 
     useEffect(() => {
         if (wallet.status === 'connected') {
             const account = wallet.account;
             setAccount(account);
+        } else {
+            setAccount(null);
         }
     }, [wallet]);
 

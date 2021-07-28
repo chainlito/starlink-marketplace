@@ -8,7 +8,7 @@ import { UseWalletProvider } from 'use-wallet';
 function MyApp({ Component, pageProps }) {
   return (
       <UseWalletProvider 
-            chainId={1}
+            chainId={4}
             connectors={{
               walletconnect: { rpcUrl: 'https://mainnet.infura.io/v3/16d62dee5d09404dac52b6933c58a000' },
               fortmatic: { apiKey: 'pk_live_6D08A510AD752EA5' },
