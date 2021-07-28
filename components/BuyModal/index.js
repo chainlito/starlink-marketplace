@@ -74,7 +74,7 @@ const BuyModal = (props) => {
             if (approved) {
                 if (!bidAmount || !parseFloat(bidAmount)) return;
                 setPending(true);
-                await placeBid(1, getBigNumber(bidAmount), signer);
+                await placeBid(SATE_AUCTION_ADDRESS[networkId], 1, getBigNumber(bidAmount), signer);
                 setPending(false);
             } else {
                 setPending(true);
