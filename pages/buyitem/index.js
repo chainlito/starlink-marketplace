@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Flex,
     Text,
@@ -8,35 +8,71 @@ import {
 import Socialbutton from '../../components/SocialButton';
 import BuyModal from '../../components/BuyModal';
 import { useWallet } from 'use-wallet';
+import { useRouter } from "next/router";
 import BigNumber from 'bignumber.js';
 import { ethers } from "ethers";
-import { approveToken, checkAllowance } from '../../contracts/starlink';
+
+import { getMetadata } from "../../contracts/sate";
+import { SATE_NFT_ADDRESS } from "../../utils/const";
 
 const BuyItem = () => {
 
     const wallet = useWallet();
+    const router = useRouter();
+    const [connected, setConnected] = useState(false);
+    const [networkId, setNetworkId] = useState(0);
+    const [tokenId, setTokenId] = useState(0);
+    const [tokenInfo, setTokenInfo] = useState({});
     const [isOpen, setIsOpen] = useState(false);
 
+    const loadData = async () => {
+        if (wallet && wallet.ethereum) {
+            const provider = new ethers.providers.Web3Provider(wallet.ethereum);
+            const network = await provider.getNetwork();
+            const signer = await provider.getSigner();
+            setNetworkId(network.chainId);
+
+            const nftId = parseInt(router.query.id);
+            setTokenId(nftId);
+            const metadata = await getMetadata(SATE_NFT_ADDRESS[network.chainId], nftId, signer);
+            
+            if (!metadata) router.push("/");
+            fetch(metadata)
+            .then((response) => response.text())
+            .then((infoResponse) => {
+                try {
+                    const jsonInfo = JSON.parse(infoResponse);
+
+                    if (!jsonInfo || !jsonInfo.image || !jsonInfo.name || !jsonInfo.animation_url) {
+                        throw new Error('Invalid json info');
+                    }
+                    setTokenInfo(jsonInfo);
+                    console.log(jsonInfo);
+                } catch (e) {
+                    console.error('[INFO] Invalid tokenUri', tokenUri);
+                }
+            });
+        }
+    }
+
+    useEffect(() => {
+        if (!connected && wallet && wallet.ethereum) {
+            setConnected(true);
+            loadData();
+        }
+    }, [wallet]);
+
     const openModal = async() => {
-        /*const owner_addr = "0x5a168798df2b9d84e28958702156b036927a9e29";
-        const walletAddres = wallet.account;
-
-        const provider = new ethers.providers.Web3Provider(wallet.ethereum);
-        const signer = await provider.getSigner();
-
-        const needApprove = await checkAllowance(owner_addr, walletAddres, signer);
-        const amount = new BigNumber(needApprove);
-        if (amount.eq("0")) {
-            const approveRes = await approveToken(walletAddres, 0, signer);
-            if (approveRes) setIsOpen(true);
-        } else {*/
-            setIsOpen(true);
-        //}
+        setIsOpen(true);
     };
 
     const cloesModal = () => {
         setIsOpen(false);
     };
+
+    if (!tokenInfo.name) {
+        return "Loading...";
+    }
 
     return (
         <Flex w="100%" h="100%" pl={["none", "none", "0px", "100px", "200px"]} flexDirection={["column", "column", "row"]}>
@@ -65,16 +101,16 @@ const BuyItem = () => {
             </Flex>
             <Flex flexDirection="column" borderLeft="solid 2px" borderColor="#131A32">
                 <Flex flexDirection="column" m="50px" mb="10px">
-                    <Text fontSize="40px" textColor="#fff" fontWeight="400">ADMIRAL GLOVES</Text>
+                    <Text fontSize="40px" textColor="#fff" fontWeight="400">{tokenInfo.name}</Text>
                     <Flex alignItems="center">
-                        <Text fontSize="14px" fontWeight="400" textColor="#1365F1">Token ID: 5334...4096</Text>
+                        <Text fontSize="14px" fontWeight="400" textColor="#1365F1">Token ID: {tokenId}</Text>
                         <Image alt="copy addr" w="20px" h="20px" src="/buyitem/ico_addr_copy.png" ml="1rem" />
                     </Flex>
                     <Flex mt="1rem" alignItems="center">
                         <Image alt="creator avatar" w="50px" h="50px" src="/buyitem/img_profile.png"></Image>
                         <Flex flexDirection="column" ml="1rem">
                             <FormLabel fontSize="10px" fontWeight="300" textColor="rgba(255, 255, 255, 0.4)">BY CREATOR</FormLabel>
-                            <FormLabel fontSize="14px" fontWeight="300" textColor="#fff">@KamiSawZe</FormLabel>
+                            <FormLabel fontSize="14px" fontWeight="300" textColor="#fff">{tokenInfo.attributes[0].value}</FormLabel>
                         </Flex>
                     </Flex>
                     <Flex fontSize={["10px", "14px", "10px", "10px", "14px"]}>
@@ -99,7 +135,7 @@ const BuyItem = () => {
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="12px">TYPE</Flex>
                             <Flex fontWeight="300" h="100%" textColor="#fff" fontSize="14px" mt="1rem" alignItems="center">
                                 <Image alt="ico equip type" w="13px" h="13px" src="/buyitem/ico_item_type.png" mr="0.5rem"></Image>
-                                Equipment
+                                {tokenInfo.attributes[5].value}
                             </Flex>
                         </Flex>
                         <Flex flexDirection="column" mr={["1rem", "4rem", "2rem", "3rem", "4rem"]}>
@@ -142,7 +178,7 @@ const BuyItem = () => {
                     <Flex flexDirection="column" textColor="#fff" fontSize="20px" mt="1.5rem">
                         Description
                         <Text fontWeight="300" textColor="#fff" fontSize="14px" mt="1rem">
-                            Gloves protect from rope burn and splinters. Gold epaulettes complete the Admiral Jacket. Lover&apos;s blue scarf and an emergency dagger on each bicep...
+                            {tokenInfo.description}
                         </Text>
                     </Flex>
                     {/* <Flex flexDirection="column" bg="#131A32" borderRadius="4px" mt="1.5rem" padding="1.5rem">
