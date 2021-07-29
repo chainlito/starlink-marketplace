@@ -47,11 +47,11 @@ const ItemCard = ({item}) => {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Text textColor="#fff" fontWeight="500" fontSize="20px">{item.title}</Text>
-                <Text textColor="rgba(255, 255, 255, 0.4)" fontSize="15px">LEO</Text>
+                <Text textColor="#fff" fontWeight="500" fontSize={["20px", "16px", "16px", "16px", "20px"]}>{item.title}</Text>
+                <Text textColor="rgba(255, 255, 255, 0.4)" fontSize={["15px", "12px", "12px", "12px", "15px"]}>LEO</Text>
                 <Flex alignItems="center">
-                    <Image src="item/coin_logo.png" w="20px" h="20px" alt="coin logo"></Image>
-                    <Text textColor="#FDB32A" fontSize="15px" fontWeight="500" ml="0.5rem">2,940,350.00</Text>
+                    <Image src="item/coin_logo.png" w={["20px", "16px", "16px", "16px", "20px"]} alt="coin logo"></Image>
+                    <Text textColor="#FDB32A" fontSize={["15px", "12px", "12px", "12px", "15px"]} fontWeight="500" ml="0.5rem">2,940,350.00</Text>
                 </Flex>
             </Flex>
         </Flex>

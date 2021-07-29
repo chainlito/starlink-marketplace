@@ -24,7 +24,7 @@ const Layout = ({children}) => {
     return (
         <Box w="100%" h="100%">
             <Header />
-            <Flex h="100%" ml="3rem">
+            <Flex h="100%" ml={["none", "none", "3rem"]}>
                 {children}
             </Flex>
             {path != '/marketplace' && 
