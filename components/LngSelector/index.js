@@ -23,9 +23,9 @@ const LanguageSelector = () => {
 
     return (
         <Flex as="button" border="none" bg="transparent" w="100%" h="100%" onFocus={onFocus} onBlur={onBlur} justifyContent="center" alignItems="center">
-            <Image alt="ico lng" w="20px" h="20px" src={icon} mr="0.5rem" />
+            <Image alt="ico lng" w={["15px", "17px", "17px", "17px", "20px"]} h={["15px", "18px", "18px", "18px", "20px"]} src={icon} mr="0.5rem" />
             <Flex _focus={{ outline: 'none'}} border="none" h="100%" bg="transparent" textColor="#fff" mr="1rem">
-                <Text fontSize="13px" fontWeight="400">EN</Text>
+                <Text fontSize={["9px", "11px", "11px", "11px", "13px"]} fontWeight="400">EN</Text>
             </Flex>
             <Image alt="arrow down" w="12px" h="8px" src={arrow} />
         </Flex>
