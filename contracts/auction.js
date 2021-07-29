@@ -1,18 +1,18 @@
 import { ethers } from "ethers";
 import abi from './auction.abi.json';
+import { isTransactionMined } from "../lib/helper";
 
-const auction_address = "0xac82ffc8c3fd1171ecdda650670f29fb2e6f02d8";
-
-export async function placeBid(tokenId, amount, signer) {
+export async function placeBid(auction, tokenId, amount, signer) {
+    const contract = new ethers.Contract(auction, abi, signer);
+    const { hash } = await contract.placeBid(tokenId, amount);
     try {
-        const contract = new ethers.Contract(auction_address, abi, signer);
-        const overrides = {
-            gasLimit: 1,
-            gasPrice: 2,
-            value: ethers.utils.parseEther("0.01"),
+        while (true) {
+          let mined = await isTransactionMined(hash);
+          if (mined) break;
         }
-        await contract.placeBid(1, 0, overrides);
-    } catch (e) {
-        return {e};
-    }
+      } catch (e) {
+        console.error(e);
+        return "";
+      }
+      return hash;
 }

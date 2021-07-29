@@ -8,9 +8,15 @@ const Home = () => {
     return (
         <Flex bg="transparent" w="100%" h="100%">
             <Flex w="100%" h="750px" justifyContent="flex-end">
+<<<<<<< HEAD
                 <Flex flexDirection="column" bg="rgba(29,37,63,0.6)" mr={["1rem", "2rem", "5rem", "10rem", "15rem"]} mt="150px" borderRadius="20px" alignSelf="center" p="30px 50px 30px 50px">
                     <Text fontSize={["18px","20px", "25px", "25px", "25px"]} textColor="#0084ff" fontWeight="700">Welcome To</Text>
                     <Text fontSize={["28px","40px", "50px", "60px", "60px"]} textColor="white" fontWeight="700">THE STARLINK</Text>
+=======
+                <Flex flexDirection="column" bg="rgba(29,37,63,0.6)" h="270px" mr="10rem" mt="150px" borderRadius="20px" alignSelf="center" p="30px 70px 30px 70px">
+                    <Text fontSize="20px" textColor="#0084ff" fontWeight="700">Welcome To</Text>
+                    <Text fontSize="45px" textColor="white" fontWeight="700">THE STARLINK</Text>
+>>>>>>> 06c2cf4318cf3d31d6ea9ec94a6ffd11ce809421
                     <Text fontSize="15px" maxW="350px" textColor="white">The First Gamified 3D Space Metaverse</Text>
                     <Flex justifyContent="space-between" mt="1.5rem">
                         <Flex as="button"  bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" borderRadius="25px"

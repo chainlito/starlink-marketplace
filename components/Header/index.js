@@ -75,7 +75,7 @@ const Header = () => {
                 <Link href="/" _focus={{ border: 'none' }}><Flex textColor="#fff" cursor="pointer">HOME</Flex></Link>
                 <Link href="/marketplace" _focus={{ border: 'none' }}><Flex textColor="#fff" cursor="pointer">MARKET</Flex></Link>
                 <Flex textColor="#fff" cursor="pointer">CREATE</Flex>
-                <Flex textColor="#fff" cursor="pointer">UNIVERSE</Flex>
+                <Link href="/universe" _focus={{ border: 'none' }}><Flex textColor="#fff" cursor="pointer">UNIVERSE</Flex></Link>
                 <Flex textColor="#fff" cursor="pointer">PLAY</Flex>
             </Flex>
             <Flex w="1px" h="100%" bgColor="#2D3653" display={['none', 'none', 'flex', 'flex', 'flex']}></Flex>

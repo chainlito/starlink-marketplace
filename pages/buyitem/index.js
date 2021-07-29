@@ -18,7 +18,7 @@ const BuyItem = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = async() => {
-        const owner_addr = "0x5a168798df2b9d84e28958702156b036927a9e29";
+        /*const owner_addr = "0x5a168798df2b9d84e28958702156b036927a9e29";
         const walletAddres = wallet.account;
 
         const provider = new ethers.providers.Web3Provider(wallet.ethereum);
@@ -29,9 +29,9 @@ const BuyItem = () => {
         if (amount.eq("0")) {
             const approveRes = await approveToken(walletAddres, 0, signer);
             if (approveRes) setIsOpen(true);
-        } else {
+        } else {*/
             setIsOpen(true);
-        }
+        //}
     };
 
     const cloesModal = () => {
