@@ -9,7 +9,6 @@ import {
     Link,
 } from '@chakra-ui/react';
 import Socialbutton from '../SocialButton';
-import { SocialIcon } from 'react-social-icons';
 
 const Footer = () => {
     return (
