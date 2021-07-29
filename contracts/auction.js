@@ -16,3 +16,14 @@ export async function placeBid(auction, tokenId, amount, signer) {
       }
       return hash;
 }
+
+export async function getAuction(auction, tokenId, signer) {
+    try {
+        const contract = new ethers.Contract(auction, abi, signer);
+        const auctionInfo = await contract.auctions(tokenId);
+        return auctionInfo;
+    } catch (e) {
+        console.error(e);
+        return {};
+    }
+}

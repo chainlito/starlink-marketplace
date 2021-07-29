@@ -1,16 +1,41 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
     Flex,
     Image,
     Text,
 } from '@chakra-ui/react';
+import { ethers } from "ethers";
 import { useRouter } from 'next/router';
+import { useWallet } from 'use-wallet';
+import { getAuction } from '../../contracts/auction';
+import { getWalletAddress } from "../../lib/wallet";
+import { SATE_AUCTION_ADDRESS } from '../../utils/const';
 
 const ItemCard = ({item}) => {
 
     const router = useRouter();
+    const wallet = useWallet();
+    const [networkId, setNetworkId] = useState(0);
     const [videoplay, setAutoPlay] = useState(false);
+    const [metadata, setMetadata] = useState("");
     const videoref = useRef();
+
+    const loadData = async () => {
+        if (wallet && wallet.ethereum) {
+            const provider = new ethers.providers.Web3Provider(wallet.ethereum);
+            const signer = await provider.getSigner();
+            const network = await provider.getNetwork();
+            setNetworkId(network.chainId);
+            const auctionInfo = await getAuction(SATE_AUCTION_ADDRESS[network.chainId], 1, signer);
+        }
+    }
+       
+
+    useEffect(() => {
+        if (wallet && wallet.ethereum) {
+            loadData();
+        }
+    }, [wallet]);
 
     const handleClick = e => {
         e.preventDefault();

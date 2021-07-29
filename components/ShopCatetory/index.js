@@ -22,7 +22,7 @@ const ShopCategory = () => {
             <Flex h="1px" w="100%" bg="rgba(255, 255, 255, 0.1)" mt="10px" alignSelf="center" />
 
             <Flex flexDirection="column" h="100%" mt="20px" justifyContent="space-between">
-                <Text textColor="#fff" fontWeight="400" cursor="pointer" fontSize="20px">FEATURED</Text>
+                {/*<Text textColor="#fff" fontWeight="400" cursor="pointer" fontSize="20px">FEATURED</Text>
                 <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>Care Bears</Flex>
                 <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>Atari</Flex>
                 <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>Smurfs</Flex>
@@ -35,7 +35,7 @@ const ShopCategory = () => {
                 <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>F1 Delta Time</Flex>
                 <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>Pranksy NFT Boxes</Flex>
                 <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>Deadmau5</Flex>
-                <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>FTX</Flex>
+    <Flex alignItems="center" textColor="rgba(255, 255, 255, 0.5)" cursor="pointer" fontSize="16px" fontWeight="400"><CustomCheckbox/>FTX</Flex>*/}
             </Flex>
         </Flex>
     );
