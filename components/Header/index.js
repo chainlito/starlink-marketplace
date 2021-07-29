@@ -68,7 +68,7 @@ const Header = () => {
                 <Image src={"logo.ico"} alignSelf="center" alt="ico" w={["20px", "25px", "25px", "30px", "30px"]} h={["20px", "25px", "25px", "30px", "30px"]}/>
                 <Text fontWeight="400" fontSize={["15px", "18px", "18px", "18px", "20px"]} ml="0.5rem">STARLINK</Text>
             </Flex>
-            <Flex w={["50%","50%", "30%", "30%", "30%"]} h="50px" alignItems="center" alignSelf="center"><CustomSearchbox /></Flex>
+            <Flex w={["50%","50%", "30%", "30%", "30%"]} display={["none", "none", "flex"]} h="50px" alignItems="center" alignSelf="center"><CustomSearchbox /></Flex>
             <Flex w="20%" justifyContent="space-between" alignSelf="center"
              display={['none', 'none', 'flex', 'flex', 'flex']}
              fontSize={["8px", "8px", "8px", "10px", "12px"]} fontWeight="700" >
@@ -91,7 +91,7 @@ const Header = () => {
                     <Flex as="button" onClick={openModal} bg="linear-gradient(225deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" minW="60px" _hover={{ background: '#314DFF' }} border="none" _disabled={{ background: '#131A32', textColor: "rgba(255, 255, 255, 0.2)" }} textColor="#fff" fontSize={["8px", "8px", "8px", "10px", "12px"]} w="6rem" h="2rem" alignItems="center" justifyContent="center">SIGN IN</Flex>
                 )}
             </Flex>
-            <Flex ml="auto" display={["flex", "flex", "none", "none", "none"]}
+            <Flex ml="auto" mr="0.5rem" display={["flex", "flex", "none", "none", "none"]}
                 onClick={() => {
                     setIsMenuOpen(true);
                 }}
