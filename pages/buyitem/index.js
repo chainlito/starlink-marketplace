@@ -81,8 +81,9 @@ const BuyItem = () => {
                 <Flex w="35px" h="35px"><Socialbutton network="twitter" /></Flex>
                 <Flex w="35px" h="35px" ml={["10px", "10px", "0"]} mt={["0", "0", "10px"]}><Socialbutton network="facebook" /></Flex>
             </Flex>
-            <Flex h="100%" w={["400px", "400px", "250px", "300px", "350px"]} padding="4px" borderRadius="8px" bg="linear-gradient(180deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" mt={["10px", "10px", "50px"]}  ml={["2.5rem", "2.5rem", "25px", "35px", "50px"]} mr={["none", "none", "25px", "35px", "50px"]}>
-                <Flex w={["400px", "400px", "250px", "300px", "350px"]} h={["400px", "400px", "350px", "450px", "500px"]} bg="#131A32" borderRadius="6px" justifyContent="center" alignItems="center">
+            <Flex h="100%" w={["80%", "80%", "250px", "300px", "350px"]} padding="4px" borderRadius="8px" bg="linear-gradient(180deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" 
+                mt={["10px", "10px", "50px"]}  ml={["2.5rem", "2.5rem", "25px", "35px", "50px"]} mr={["none", "none", "25px", "35px", "50px"]}>
+                <Flex w={["100%", "100%", "250px", "300px", "350px"]} h={["400px", "400px", "350px", "450px", "500px"]} bg="#131A32" borderRadius="6px" justifyContent="center" alignItems="center">
                     <Flex w="100%" h="100%" justifyContent="center" alignItems="center">
                         <Flex w="100%" h="100%">
                                 <video autoPlay loop muted
@@ -100,7 +101,7 @@ const BuyItem = () => {
                 </Flex>
             </Flex>
             <Flex flexDirection="column" borderLeft="solid 2px" borderColor="#131A32">
-                <Flex flexDirection="column" m="50px" mb="10px">
+                <Flex flexDirection="column" m={["30px", "30px", "50px"]} mb="10px">
                     <Text fontSize="40px" textColor="#fff" fontWeight="400">{tokenInfo.name}</Text>
                     <Flex alignItems="center">
                         <Text fontSize="14px" fontWeight="400" textColor="#1365F1">Token ID: {tokenId}</Text>
