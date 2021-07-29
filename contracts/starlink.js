@@ -30,7 +30,6 @@ export async function isTokenApproved(coinAddress, owner, contract, amount, sign
         const allowance = (await erc20.allowance(owner, contract)) || 0;
         const x = new BigNumber(allowance);
         const y = new BigNumber(amount);
-        console.log(x);
         return x.isGreaterThanOrEqualTo(y.isEqualTo("0") ? "10000000":y);
     } catch (e) {
         return 0;

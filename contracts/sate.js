@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import abi from './auction.abi.json';
+import abi from './sate.abi.json';
 import { isTransactionMined } from "../lib/helper";
 
 
