@@ -94,7 +94,7 @@ const BuyItem = () => {
                             <Text ml="0.5rem" textColor="#fff" fontWeight="300">3 Owners</Text>
                         </Flex>
                     </Flex>
-                    {/* ---------------------------------------------------------------------------------- */}
+
                     <Flex bg="#131A32" w="100%" borderRadius="4px" p="1rem" mt="1.5rem">
                         <Flex flexDirection="column" mr={["1rem", "4rem", "2rem", "3rem", "4rem"]}>
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="12px">TYPE</Flex>
@@ -116,7 +116,7 @@ const BuyItem = () => {
                             </Flex>
                         </Flex>
                     </Flex>
-                    {/* ------------------------------------Attributes------------------------------------- */}
+
                     <Flex textColor="#fff" fontSize="20px" mt="1.5rem">Attributes</Flex>
                     <Flex alignItems="center" mt="0.5rem" p="1rem" w="100%" bg="#131A32" borderRadius="4px">
                         <Image alt="attribute overview img" w="40px" h="40px" src="/buyitem/img_attr_type1.png"></Image>
@@ -139,53 +139,14 @@ const BuyItem = () => {
                             </Flex>
                         </Flex>
                     </Flex>
-                    {/* ------------------------------------Description------------------------------------- */}
+
                     <Flex flexDirection="column" textColor="#fff" fontSize="20px" mt="1.5rem">
                         Description
                         <Text fontWeight="300" textColor="#fff" fontSize="14px" mt="1rem">
                             Gloves protect from rope burn and splinters. Gold epaulettes complete the Admiral Jacket. Lover&apos;s blue scarf and an emergency dagger on each bicep...
                         </Text>
                     </Flex>
-                    {/* <Flex flexDirection="column" bg="#131A32" borderRadius="4px" mt="1.5rem" padding="1.5rem">
-                        <Flex alignItems="center" justifyContent="space-between">
-                            <Text fontWeight="300" textColor="rgba(255, 255, 255, 0.4)" fontSize="12px">NFT FORM CREATOR</Text>
-                            <Text fontWeight="300" textColor="#fff" fontSize="16px">See more {'>'}</Text>
-                        </Flex>
-                        <Flex as="button" alignItems="center" bg="#131A32" borderRadius="6px" border="solid 2px" borderColor="#1C2441" p="1rem" mb="1rem" cursor="pointer" _focus={{ borderColor: '#314DFF' }} _hover={{ borderColor: '#314DFF' }} justifyContent="space-between">
-                            <Flex h="100%">
-                                <Image alt="asset img" w="60px" h="70px" src="/buyitem/img_item1.png"></Image>
-                                <Flex flexDirection="column"  fontWeight="300" textColor="#fff" textAlign="left" fontSize="16px" h="100%" justifyContent="space-between" ml="1.5rem">
-                                    Admiral Gloves
-                                    <Flex textColor="#314DFF">Legendary</Flex>
-                                    11
-                                </Flex>
-                            </Flex>
-                            <Image alt="overview img" w="50px" h="50px" src="/buyitem/img_attr_type1.png"></Image>
-                        </Flex>
-                        <Flex as="button" alignItems="center" bg="#131A32" borderRadius="6px" border="solid 2px" borderColor="#1C2441" p="1rem" mb="1rem" cursor="pointer" _focus={{ borderColor: '#314DFF' }} _hover={{ borderColor: '#314DFF' }} justifyContent="space-between">
-                            <Flex h="100%">
-                                <Image alt="asset img"  w="60px" h="70px" src="/buyitem/img_item2.png"></Image>
-                                <Flex flexDirection="column" fontWeight="300" textColor="#fff" textAlign="left" fontSize="16px" h="100%" justifyContent="space-between" ml="1.5rem">
-                                    Admiral Jacket
-                                    <Flex color="transparent" bg="linear-gradient(#FDBF25, #FE9200)" style={{ "-webkit-background-clip": "text" }}>Legendary</Flex>
-                                    11
-                                </Flex>
-                            </Flex>
-                            <Image alt="overview img" w="40px" h="40px" src="/buyitem/img_attr_type2.png"></Image>
-                        </Flex>
-                        <Flex as="button" alignItems="center" bg="#131A32" borderRadius="6px" border="solid 2px" borderColor="#1C2441" p="1rem" mb="1rem" cursor="pointer" _focus={{ borderColor: '#314DFF' }} _hover={{ borderColor: '#314DFF' }} justifyContent="space-between">
-                            <Flex h="100%">
-                                <Image alt="asset img" w="60px" h="70px" src="/buyitem/img_item3.png"></Image>
-                                <Flex flexDirection="column" fontWeight="300" textColor="#fff" textAlign="left" fontSize="16px" h="100%" justifyContent="space-between" ml="1.5rem">
-                                    Admiral Boots
-                                    <Flex color="transparent" bg="linear-gradient(#FDBF25, #FE9200)" style={{ "-webkit-background-clip": "text" }}>Legendary</Flex>
-                                    11
-                                </Flex>
-                            </Flex>
-                            <Image alt="overview img" w="40px" h="40px" src="/buyitem/img_attr_type2.png"></Image>
-                        </Flex>
-                    </Flex> */}
-                    {/* -----------------------------Description----------------------------- */}
+
                     <Flex flexDirection="column" mt="1.5rem">
                         <Text fontWeight="300" textColor="#fff" fontSize="24px" mb="1rem">Description</Text>
                         <Flex flexDirection="column" fontWeight="300" textColor="#fff" fontSize="14px">
@@ -195,7 +156,7 @@ const BuyItem = () => {
                         </Flex>
                     </Flex>
                 </Flex>
-                {/* ------------------------------buy component---------------------------- */}
+                
                 <Flex w="100%" h="100px" bg="#131A32">
                     <Flex m="20px 50px" w="100%" justifyContent="space-between" alignItems="center">
                         <Flex flexDirection="column" alignItems="center">

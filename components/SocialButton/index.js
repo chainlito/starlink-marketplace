@@ -18,7 +18,7 @@ const Socialbutton = ({ network }) => {
 
     return (
         <Flex w="100%" h="100%" borderRadius="10px" justifyContent="center" alignItems="center" border="none" bg={focused? '#1365F1' : '#fff'} onMouseOver={onFocus} onMouseLeave={onBlur}>
-            {focused == 0 && <SocialIcon network={network} style={{ width: 35, height: 35 }} fgColor="#06061C" bgColor="transparent" />}
+            {focused == 0 && <SocialIcon url="" network={network} style={{ width: 35, height: 35 }} fgColor="#06061C" bgColor="transparent" />}
             {focused == 1 && <SocialIcon network={network} style={{ width: 35, height: 35 }} fgColor="#fff" bgColor="transparent" />}
         </Flex>
     )

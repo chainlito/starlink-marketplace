@@ -8,8 +8,8 @@ import {
     Stack,
     Link,
 } from '@chakra-ui/react';
-import { SocialIcon } from 'react-social-icons';
 import Socialbutton from '../SocialButton';
+import { SocialIcon } from 'react-social-icons';
 
 const Footer = () => {
     return (
@@ -51,17 +51,16 @@ const Footer = () => {
                         <Text>SOCIAL</Text>
                         <VStack spacing={15} alignItems="flex-start" mt="0.5rem">
                             <HStack spacing={["2", "13", "15", "15", "15"]}>
-                                <Link href="/"><Flex w="35px" h="35px"><Socialbutton network="facebook" /></Flex></Link>
-                                <Link href="https://twitter.com/starlinketh"><Flex w="35px" h="35px"><Socialbutton network="twitter" /></Flex></Link>
-                                <Link href="https://t.me/Starlinkofficial"><Flex w="35px" h="35px"><Socialbutton network="telegram" /></Flex></Link>
-                                <Link href="/"><Flex w="35px" h="35px"><Socialbutton network="youtube" /></Flex></Link>
+                                <Flex as="button" onClick={() => window.location.href="/"} w="35px" h="35px"><Socialbutton network="facebook" /></Flex>
+                                <Flex as="button" onClick={() => window.location.href="https://twitter.com/starlinketh"} w="35px" h="35px"><Socialbutton network="twitter"/></Flex>
+                                <Flex as="button" onClick={() => window.location.href="https://t.me/Starlinkofficial"} w="35px" h="35px"><Socialbutton network="telegram"/></Flex>
+                                <Flex as="button" onClick={() => window.location.href="/"} w="35px" h="35px"><Socialbutton network="youtube" /></Flex>
                             </HStack>
                             <HStack spacing={["2", "13", "15", "15", "15"]}>
-                                {/* <Flex w="35px" h="35px"><Socialbutton network="discord" /></Flex> */}
                                 <Link href="https://discord.gg/dAt6W4NtXz"><Flex w="35px" h="35px" bg="#fff" borderRadius="10px" justifyContent="center" alignItems="center"><Image w="20px" h="20px" alt="social" src="footer/ico_discord.png" /></Flex></Link>
-                                <Link href="https://starlinkmeta.medium.com/"><Flex w="35px" h="35px"><Socialbutton network="medium" /></Flex></Link>
-                                <Link href="/"><Flex w="35px" h="35px"><Socialbutton network="instagram" /></Flex></Link>
-                                <Link href="/"><Flex w="35px" h="35px"><Socialbutton network="twitch" /></Flex></Link>
+                                <Flex as="button" onClick={() => window.location.href="https://starlinkmeta.medium.com/"} w="35px" h="35px"><Socialbutton network="medium" /></Flex>
+                                <Flex as="button" onClick={() => window.location.href="/"} w="35px" h="35px"><Socialbutton network="instagram" /></Flex>
+                                <Flex as="button" onClick={() => window.location.href="/"} w="35px" h="35px"><Socialbutton network="twitch" /></Flex>
                             </HStack>
                         </VStack>
                     </Flex>

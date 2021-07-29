@@ -14,6 +14,7 @@ import ItemCard from '../ItemCard';
 import SortBy from '../SortbyComponent';
 import CustomSwitch from '../CustomSwitch';
 import CustomCheckbox from '../CustomCheckbox';
+import Switch from '@material-ui/core/Switch';
 
 const itemInfo = {
     type: 1,
