@@ -10,8 +10,8 @@ import CustomCheckbox from '../CustomCheckbox';
 
 const ShopCategory = () => {
     return (
-        <Flex w="400px" h="800px" borderRadius="10px" ml="200px" p="1.5rem"
-            flexDirection="column"
+        <Flex w="400px" h="800px" borderRadius="10px" ml={["auto", "auto", "70px", "150px", "200px"]} p="1.5rem"
+            flexDirection="column"  display={["none", "none", "flex", "flex", "flex"]}
         >
             <FormLabel fontSize="32px" fontWeight="400" textColor="#fff" >Marketplace</FormLabel>
             <Flex justifyContent="space-between" alignItems="center" mt="10px">

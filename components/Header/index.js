@@ -115,33 +115,33 @@ const Header = () => {
                 onClose={onClose}
             >
                 <DrawerOverlay>
-                <DrawerContent bg="#1E1A21" color="#fff">
+                <DrawerContent bg="#1d253f" color="#fff">
                     <DrawerCloseButton />
                     <DrawerHeader>Menu</DrawerHeader>
                     <DrawerBody>
                         <Flex flexDirection="column" w="100%" display={["flex", "flex", "none", 'none', 'none']}>
                             <Link href="/" m="1.5rem 0 0.5rem 0" _hover={{opacity: 0.8}} transition="0.3s" _active={{}} _focus={{}}>
-                                <Text fontWeight="bold" fontSize="16px">HOME</Text>
+                                <Text fontWeight="bold" fontSize="13px">HOME</Text>
                             </Link>
                             <Link href="/marketplace" m="0.5rem 0" _hover={{opacity: 0.8}} transition="0.3s" _active={{}} _focus={{}}>
-                                <Text fontWeight="bold" fontSize="16px">MARKET</Text>
+                                <Text fontWeight="bold" fontSize="13px">MARKET</Text>
                             </Link>
                             <Link m="0.5rem 0" _hover={{opacity: 0.8}} transition="0.3s" _active={{}} _focus={{}}
                             >
-                                <Text fontWeight="bold" fontSize="16px">CREATE</Text>
+                                <Text fontWeight="bold" fontSize="13px">CREATE</Text>
                             </Link>
                             <Link m="0.5rem 0" _hover={{opacity: 0.8}} transition="0.3s" _active={{}} _focus={{}}
                             >
-                                <Text fontWeight="bold" fontSize="16px">UNIVERSE</Text>
+                                <Text fontWeight="bold" fontSize="13px">UNIVERSE</Text>
                             </Link>
                             <Link m="0.5rem 0" _hover={{opacity: 0.8}} transition="0.3s" _active={{}} _focus={{}}
                             >
-                                <Text fontWeight="bold" fontSize="16px">PLAY</Text>
+                                <Text fontWeight="bold" fontSize="13px">PLAY</Text>
                             </Link>
                             <Flex mt="1rem" mb="1rem" h="1px" w="100%" bg="rgba(255, 255, 255, 0.45)"></Flex>
                             <Link m="0.5rem 0" _hover={{opacity: 0.8}} transition="0.3s" _active={{}} _focus={{}}
                             >
-                                <Text fontWeight="bold" fontSize="16px">SIGN IN</Text>
+                                <Text fontWeight="bold" fontSize="13px">SIGN IN</Text>
                             </Link>
                         </Flex>
                     </DrawerBody>

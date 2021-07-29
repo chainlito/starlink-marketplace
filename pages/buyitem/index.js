@@ -39,14 +39,14 @@ const BuyItem = () => {
     };
 
     return (
-        <Flex w="100%" h="100%" ml="200px">
-            <Flex flexDirection="column" h="100%" bg="#141B34" borderRadius="8px" 
-                mt="50px" mr="-25px" p="15px">
+        <Flex w="100%" h="100%" pl={["none", "none", "0px", "100px", "200px"]} flexDirection={["column", "column", "row"]}>
+            <Flex w={["100px", "100px", "unset"]} flexDirection={["row", "row", "column"]} h="100%" bg="#141B34" borderRadius="8px" 
+                mt="50px" mr={["0px", "0px", "0px", "-25px"]} p="10px" ml="2.5rem">
                 <Flex w="35px" h="35px"><Socialbutton network="twitter" /></Flex>
-                <Flex w="35px" h="35px" mt="10px"><Socialbutton network="facebook" /></Flex>
+                <Flex w="35px" h="35px" ml={["10px", "10px", "0"]} mt={["0", "0", "10px"]}><Socialbutton network="facebook" /></Flex>
             </Flex>
-            <Flex w="600px" h="550px" padding="4px" borderRadius="8px" bg="linear-gradient(180deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" m="50px">
-                <Flex w="100%" h="100%" bg="#131A32" borderRadius="6px" justifyContent="center" alignItems="center">
+            <Flex h="100%" w={["400px", "400px", "250px", "300px", "350px"]} padding="4px" borderRadius="8px" bg="linear-gradient(180deg, #FDBF25, #B417EB, #0D57FF, #2D9CB4)" mt={["10px", "10px", "50px"]}  ml={["2.5rem", "2.5rem", "25px", "35px", "50px"]} mr={["none", "none", "25px", "35px", "50px"]}>
+                <Flex w={["400px", "400px", "250px", "300px", "350px"]} h={["400px", "400px", "350px", "450px", "500px"]} bg="#131A32" borderRadius="6px" justifyContent="center" alignItems="center">
                     <Flex w="100%" h="100%" justifyContent="center" alignItems="center">
                         <Flex w="100%" h="100%">
                                 <video autoPlay loop muted
@@ -77,32 +77,32 @@ const BuyItem = () => {
                             <FormLabel fontSize="14px" fontWeight="300" textColor="#fff">@KamiSawZe</FormLabel>
                         </Flex>
                     </Flex>
-                    <Flex>
+                    <Flex fontSize={["10px", "14px", "10px", "10px", "14px"]}>
                         <Flex alignItems="center">
                             <Image alt="ico copy" w="15px" h="15px" src="/buyitem/ico_copy.png"></Image>
-                            <Text ml="0.5rem" fontSize="14px" textColor="#fff" fontWeight="300">11 Minted</Text>
+                            <Text ml="0.5rem" textColor="#fff" fontWeight="300">11 Minted</Text>
                         </Flex>
                         <Flex w="1px" h="30px" bg="#1C2646" m="0 1.5rem 0 1.5rem" alignSelf="center"></Flex>
                         <Flex alignItems="center">
                             <Image alt="ico mark" w="15px" h="15px" src="/buyitem/ico_note.png"></Image>
-                            <Text ml="0.5rem" fontSize="14px" textColor="#fff" fontWeight="300">8 of 10 For sale</Text>
+                            <Text ml="0.5rem" textColor="#fff" fontWeight="300">8 of 10 For sale</Text>
                         </Flex>
                         <Flex w="1px" h="30px" bg="#1C2646" m="0 1.5rem 0 1.5rem" alignSelf="center"></Flex>
                         <Flex alignItems="center">
                             <Image alt="ico profile" w="20px" h="15px" src="/buyitem/ico_network.png"></Image>
-                            <Text ml="0.5rem" fontSize="14px" textColor="#fff" fontWeight="300">3 Owners</Text>
+                            <Text ml="0.5rem" textColor="#fff" fontWeight="300">3 Owners</Text>
                         </Flex>
                     </Flex>
                     {/* ---------------------------------------------------------------------------------- */}
                     <Flex bg="#131A32" w="100%" borderRadius="4px" p="1rem" mt="1.5rem">
-                        <Flex flexDirection="column" mr="4rem">
+                        <Flex flexDirection="column" mr={["1rem", "4rem", "2rem", "3rem", "4rem"]}>
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="12px">TYPE</Flex>
                             <Flex fontWeight="300" h="100%" textColor="#fff" fontSize="14px" mt="1rem" alignItems="center">
                                 <Image alt="ico equip type" w="13px" h="13px" src="/buyitem/ico_item_type.png" mr="0.5rem"></Image>
                                 Equipment
                             </Flex>
                         </Flex>
-                        <Flex flexDirection="column" mr="4rem">
+                        <Flex flexDirection="column" mr={["1rem", "4rem", "2rem", "3rem", "4rem"]}>
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="12px">BIOME</Flex>
                             <Flex fontWeight="300" h="100%" textColor="#fff" fontSize="14px" mt="1rem" alignItems="center">None</Flex>
                         </Flex>
@@ -123,14 +123,14 @@ const BuyItem = () => {
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="10px">Catalyst</Flex>
                             <Flex fontWeight="300" textColor="#fff" fontSize="14px">Legendary</Flex>
                         </Flex>
-                        <Flex flexDirection="column" h="100%" justifyContent="space-between" ml="4rem">
+                        <Flex flexDirection="column" h="100%" justifyContent="space-between" ml={["1rem", "4rem", "2rem", "3rem", "4rem"]}>
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="12px">POWER</Flex>
                             <Flex fontWeight="300" textColor="#fff" fontSize="14px">
                                 <Image alt="power img" w="20px" h="20px" src="/buyitem/img_def.png" mr="0.5rem"></Image>
                                 49
                             </Flex>
                         </Flex>
-                        <Flex flexDirection="column" h="100%" justifyContent="space-between" ml="4rem">
+                        <Flex flexDirection="column" h="100%" justifyContent="space-between" ml={["1rem", "4rem", "2rem", "3rem", "4rem"]}>
                             <Flex fontWeight="300" textColor="rgba(255, 255, 255, 0.1)" fontSize="12px">DEFENSE</Flex>
                             <Flex fontWeight="300" textColor="#fff" fontSize="14px">
                                 <Image alt="defense img" w="20px" h="20px" src="/buyitem/img_power.png" mr="0.5rem"></Image>
