@@ -15,11 +15,7 @@ import SortBy from '../SortbyComponent';
 import CustomSwitch from '../CustomSwitch';
 import CustomCheckbox from '../CustomCheckbox';
 
-const itemInfo = {
-    type: 1,
-    img: 'item/img_glove.png',
-    title: 'Admiral Gloves',
-}
+const tokenIds = [2, 3, 3, 2, 3, 2, 2, 2, 2, 3, 2, 3, 3, 3];
 
 const ItemList = () => {
 
@@ -61,7 +57,7 @@ const ItemList = () => {
                 <Flex alignItems="center">
                     <Text fontWeight="400" textColor="#fff" fontSize={["15px", "20px", "15px", "24px", "24px"]} fontFamily="ArcadeClassic">NFTS FOR SALE</Text>
                     <Flex w="105px" h="40px" bg="#1d253f" ml="1.5rem" borderRadius="4px" alignItems="center">
-                        <Text w="100%" textAlign="center" fontSize="12px" textColor="rgba(255, 255, 255, 0.26)">118 results</Text>
+                        <Text w="100%" textAlign="center" fontSize="12px" textColor="rgba(255, 255, 255, 0.26)">{tokenIds.length} results</Text>
                     </Flex>
                 </Flex>
                 <Flex textColor="#bcc0c1" fontSize="14px" alignItems="center" justifyContent={["none", "none", "flex-end"]} mt={["1rem", "1rem", "0"]}>
@@ -72,20 +68,7 @@ const ItemList = () => {
                 </Flex>
             </Flex>
             <SimpleGrid columns={["1", "2", "2", "3", "4"]} spacing={5} m="20px 0 30px 0">
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
-                <ItemCard item={itemInfo} />
+                {tokenIds.map(id => <ItemCard id={id} key={id} />)}
             </SimpleGrid>
         </Flex>
     ); 
