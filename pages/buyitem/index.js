@@ -49,7 +49,7 @@ const BuyItem = () => {
                     setTokenInfo(jsonInfo);
                     console.log(jsonInfo);
                 } catch (e) {
-                    console.error('[INFO] Invalid tokenUri', tokenUri);
+                    console.error('[INFO] Invalid tokenUri', metadata);
                 }
             });
         }
